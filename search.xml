@@ -1,35 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Auto.JS</title>
-    <url>/2021/08/11/Auto-JS/</url>
-    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Auto.JS简介与教程<br><a href="https://www.jianshu.com/p/4602db0618df">https://www.jianshu.com/p/4602db0618df</a></p>
-<p>B站教程<br><a href="https://space.bilibili.com/21486893/video">https://space.bilibili.com/21486893/video</a></p>
-<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><p>手机安装：<br>Auto.js 4.1.0：<a href="https://cuishuohao.lanzous.com/iFj24n9g8ab">https://cuishuohao.lanzous.com/iFj24n9g8ab</a><br>Auto.js打包插件：<a href="https://cuishuohao.lanzous.com/iugZ5n9g83e">https://cuishuohao.lanzous.com/iugZ5n9g83e</a><br>Auto.js Pro（仅备用）：<a href="https://cuishuohao.lanzous.com/iXd62n9g8ta">https://cuishuohao.lanzous.com/iXd62n9g8ta</a><br>电脑vscode插件：<br><a href="https://github.com/hyb1996/Auto.js-VSCode-Extension">https://github.com/hyb1996/Auto.js-VSCode-Extension</a></p>
-<p>打开服务：        Ctrl+Shift+P：Auto.js: StartServer<br>保存Js到手机：  Ctrl+Shift+P：Auto.js: Save On Device<br>在手机上运行：  F5</p>
-<h1 id="手机需要权限"><a href="#手机需要权限" class="headerlink" title="手机需要权限"></a>手机需要权限</h1><p>进入开发者模式（小米note3）:我的设备–全部参数–MIUI版本，连续点击<br>​</p>
-<p>无障碍服务<br>悬浮窗<br>​</p>
-<p>安装Auto.JS APK：在手机上安装Auto.js_V4.1.1_Alpha2<br>注：App会自动引导开启“无障碍服务”。以小米为例，按程序指示，在程序跳转到的页面点击“更多已下载的服务”-&gt;“Auto.js”-&gt;开启服务</p>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/90065914">https://zhuanlan.zhihu.com/p/90065914</a></p>
-<p><strong>小米（以红米note9为例）</strong><br>无障碍服务：<br>设置–更多设置–无障碍–已下载的服务–Auto.js–开启服务<br>悬浮窗：<br>设置–应用设置–授权管理–应用权限管理–Auto.js–显示悬浮窗–始终允许</p>
-<p><strong>魅族（以魅蓝note5为例）</strong><br>无障碍服务：<br>设置–辅助功能–无障碍–服务–Auto.js–开启<br>悬浮窗：<br>设置–应用管理–应用权限–Auto.js–悬浮窗–开启</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>参考：<br><a href="https://www.jb51.net/article/186148.htm">https://www.jb51.net/article/186148.htm</a></p>
-<p>官方文档：<br><a href="https://hyb1996.github.io/AutoJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0">https://hyb1996.github.io/AutoJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0</a></p>
-<p>swipe滑动文档：<br><a href="https://hyb1996.github.io/AutoJs-Docs/#/coordinatesBasedAutomation?id=swipex1-y1-x2-y2-duration">https://hyb1996.github.io/AutoJs-Docs/#/coordinatesBasedAutomation?id=swipex1-y1-x2-y2-duration</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hexo博客优化</title>
-    <url>/2021/08/13/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>categories</category>
-      </categories>
-      <tags>
-        <tag>tags</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo搭建个人博客</title>
     <url>/2021/08/11/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p>2021年8月11日</p>
@@ -75,6 +46,35 @@
 
 <p>外网访问地址：<a href="http://tsuish.free.idcfengye.com/">http://tsuish.free.idcfengye.com</a><br>​</p>
 <p>参考：<br>ngrok内网穿透：<a href="http://ngrok.cc/user.html">http://ngrok.cc/user.html</a>：账号137邮箱，密码123123123<br>Ngrok的Android版本使用教程：<a href="https://www.ngrok.cc/_book/start/ngrok_android.html">https://www.ngrok.cc/_book/start/ngrok_android.html</a><br>sunny.py文件：<a href="https://www.ngrok.cc/sunny/python-ngrok.zip?v=2.1">https://www.ngrok.cc/sunny/python-ngrok.zip?v=2.1</a><br>魅族手机root教程：<a href="https://jingyan.baidu.com/article/f96699bbe53182894e3c1be8.html">https://jingyan.baidu.com/article/f96699bbe53182894e3c1be8.html</a><br>TerMux配置Root用户： <a href="https://blog.csdn.net/LYKymy/article/details/88911712">https://blog.csdn.net/LYKymy/article/details/88911712</a><br>Termux 高级终端安装使用配置教程：<a href="https://www.sqlsec.com/2018/05/termux.html">https://www.sqlsec.com/2018/05/termux.html</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hexo博客优化</title>
+    <url>/2021/08/13/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>categories</category>
+      </categories>
+      <tags>
+        <tag>tags</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Auto.JS</title>
+    <url>/2021/08/11/Auto-JS/</url>
+    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Auto.JS简介与教程<br><a href="https://www.jianshu.com/p/4602db0618df">https://www.jianshu.com/p/4602db0618df</a></p>
+<p>B站教程<br><a href="https://space.bilibili.com/21486893/video">https://space.bilibili.com/21486893/video</a></p>
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><p>手机安装：<br>Auto.js 4.1.0：<a href="https://cuishuohao.lanzous.com/iFj24n9g8ab">https://cuishuohao.lanzous.com/iFj24n9g8ab</a><br>Auto.js打包插件：<a href="https://cuishuohao.lanzous.com/iugZ5n9g83e">https://cuishuohao.lanzous.com/iugZ5n9g83e</a><br>Auto.js Pro（仅备用）：<a href="https://cuishuohao.lanzous.com/iXd62n9g8ta">https://cuishuohao.lanzous.com/iXd62n9g8ta</a><br>电脑vscode插件：<br><a href="https://github.com/hyb1996/Auto.js-VSCode-Extension">https://github.com/hyb1996/Auto.js-VSCode-Extension</a></p>
+<p>打开服务：        Ctrl+Shift+P：Auto.js: StartServer<br>保存Js到手机：  Ctrl+Shift+P：Auto.js: Save On Device<br>在手机上运行：  F5</p>
+<h1 id="手机需要权限"><a href="#手机需要权限" class="headerlink" title="手机需要权限"></a>手机需要权限</h1><p>进入开发者模式（小米note3）:我的设备–全部参数–MIUI版本，连续点击<br>​</p>
+<p>无障碍服务<br>悬浮窗<br>​</p>
+<p>安装Auto.JS APK：在手机上安装Auto.js_V4.1.1_Alpha2<br>注：App会自动引导开启“无障碍服务”。以小米为例，按程序指示，在程序跳转到的页面点击“更多已下载的服务”-&gt;“Auto.js”-&gt;开启服务</p>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/90065914">https://zhuanlan.zhihu.com/p/90065914</a></p>
+<p><strong>小米（以红米note9为例）</strong><br>无障碍服务：<br>设置–更多设置–无障碍–已下载的服务–Auto.js–开启服务<br>悬浮窗：<br>设置–应用设置–授权管理–应用权限管理–Auto.js–显示悬浮窗–始终允许</p>
+<p><strong>魅族（以魅蓝note5为例）</strong><br>无障碍服务：<br>设置–辅助功能–无障碍–服务–Auto.js–开启<br>悬浮窗：<br>设置–应用管理–应用权限–Auto.js–悬浮窗–开启</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>参考：<br><a href="https://www.jb51.net/article/186148.htm">https://www.jb51.net/article/186148.htm</a></p>
+<p>官方文档：<br><a href="https://hyb1996.github.io/AutoJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0">https://hyb1996.github.io/AutoJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0</a></p>
+<p>swipe滑动文档：<br><a href="https://hyb1996.github.io/AutoJs-Docs/#/coordinatesBasedAutomation?id=swipex1-y1-x2-y2-duration">https://hyb1996.github.io/AutoJs-Docs/#/coordinatesBasedAutomation?id=swipex1-y1-x2-y2-duration</a></p>
 ]]></content>
   </entry>
 </search>
