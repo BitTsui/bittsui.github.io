@@ -1920,6 +1920,9 @@ pre code {
 }
 .post-body {
   font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  padding: 25px;
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -2018,6 +2021,8 @@ pre code {
 .post-body video,
 .post-body embed {
   margin-bottom: 20px;
+  -webkit-box-shadow: 0 0 50px rgba(202,203,203,0.9);
+  -moz-box-shadow: 0 0 50px rgba(202,203,204,0.9);
 }
 .post-body .video-container {
   height: 0;
