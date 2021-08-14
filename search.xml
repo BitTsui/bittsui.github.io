@@ -11,16 +11,27 @@
 <p>先在手机安装F-Droid，再在F-Droid上下载安装Termux。<br>​</p>
 <p>手机上termux不好操作，于是用cmd通过ssh连接。<br>手机termux启动sshd服务：</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">sshd</span><br><span class="line">nmap <span class="number">192.168</span>.<span class="number">31.67</span></span><br></pre></td></tr></table></figure>
+
+
 <p>电脑在cmd用ssh连：</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ssh  u0_a103@<span class="number">192.168</span>.<span class="number">31.67</span> <span class="literal">-p</span> <span class="number">8022</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ssh的密码：root</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>cmd隐藏会话</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 使用tmux命令，系统后台不挂断地运行命令，退出终端不会影响程序的运行。类似于nohup命令</span><br><span class="line">tmux</span><br></pre></td></tr></table></figure>
+
+
 
 
 <p>pkg换源关键代码</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">deb [<span class="type">arch</span>=<span class="type">all</span>,<span class="type">aarch64</span>] http://mirrors.tuna.tsinghua.edu.cn/termux stable main</span><br><span class="line"></span><br><span class="line">sed <span class="literal">-i</span> <span class="string">&#x27;s@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main@&#x27;</span> <span class="variable">$PREFIX</span>/etc/apt/sources.list</span><br><span class="line">sed <span class="literal">-i</span> <span class="string">&#x27;s@^\(deb.*games stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24 games stable@&#x27;</span> <span class="variable">$PREFIX</span>/etc/apt/sources.list.d/game.list</span><br><span class="line">sed <span class="literal">-i</span> <span class="string">&#x27;s@^\(deb.*science stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24 science stable@&#x27;</span> <span class="variable">$PREFIX</span>/etc/apt/sources.list.d/science.list</span><br><span class="line">apt update &amp;&amp; apt upgrade</span><br></pre></td></tr></table></figure>
 
 
+
 <p>Vim不能右键粘贴</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> <span class="built_in">pwd</span></span><br><span class="line">/<span class="keyword">data</span>/<span class="keyword">data</span>/com.termux/files/home</span><br><span class="line"></span><br><span class="line">vim .vimrc</span><br><span class="line"><span class="built_in">set</span> mouse=<span class="built_in">r</span></span><br></pre></td></tr></table></figure>
+
 
 
 <p>搭建成功，访问地址：</p>
@@ -46,7 +57,7 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">进入Python客户端所在的目录</span></span><br><span class="line">cd /storage/emulated/0/Download</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">执行脚本</span></span><br><span class="line">python sunny.py</span><br></pre></td></tr></table></figure>
 
 <p>外网访问地址：<a href="http://tsuish.free.idcfengye.com/">http://tsuish.free.idcfengye.com（免费版，很不稳定）</a></p>
-<p>参考：<br>ngrok内网穿透：<a href="http://ngrok.cc/user.html">http://ngrok.cc/user.html</a>：账号137邮箱，密码123123123<br>Ngrok的Android版本使用教程：<a href="https://www.ngrok.cc/_book/start/ngrok_android.html">https://www.ngrok.cc/_book/start/ngrok_android.html</a><br>sunny.py文件：<a href="https://www.ngrok.cc/sunny/python-ngrok.zip?v=2.1">https://www.ngrok.cc/sunny/python-ngrok.zip?v=2.1</a><br>魅族手机root教程：<a href="https://jingyan.baidu.com/article/f96699bbe53182894e3c1be8.html">https://jingyan.baidu.com/article/f96699bbe53182894e3c1be8.html</a><br>TerMux配置Root用户： <a href="https://blog.csdn.net/LYKymy/article/details/88911712">https://blog.csdn.net/LYKymy/article/details/88911712</a><br>Termux 高级终端安装使用配置教程：<a href="https://www.sqlsec.com/2018/05/termux.html">https://www.sqlsec.com/2018/05/termux.html</a></p>
+<p>参考：<br>ngrok内网穿透：<a href="http://ngrok.cc/user.html">http://ngrok.cc/user.html</a><br>Ngrok的Android版本使用教程：<a href="https://www.ngrok.cc/_book/start/ngrok_android.html">https://www.ngrok.cc/_book/start/ngrok_android.html</a><br>sunny.py文件：<a href="https://www.ngrok.cc/sunny/python-ngrok.zip?v=2.1">https://www.ngrok.cc/sunny/python-ngrok.zip?v=2.1</a><br>魅族手机root教程：<a href="https://jingyan.baidu.com/article/f96699bbe53182894e3c1be8.html">https://jingyan.baidu.com/article/f96699bbe53182894e3c1be8.html</a><br>TerMux配置Root用户： <a href="https://blog.csdn.net/LYKymy/article/details/88911712">https://blog.csdn.net/LYKymy/article/details/88911712</a><br>Termux 高级终端安装使用配置教程：<a href="https://www.sqlsec.com/2018/05/termux.html">https://www.sqlsec.com/2018/05/termux.html</a></p>
 ]]></content>
       <categories>
         <category>工具</category>
