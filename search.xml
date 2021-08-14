@@ -13,7 +13,7 @@
 
 
 <h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p>参考：<a href="https://www.jianshu.com/p/f72aaad7b852">https://www.jianshu.com/p/f72aaad7b852</a></p>
-<p>同时对Typora做适配，方法如下：</p>
+<p>同时在本地对Typora做适配，方法如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 - 图像 - 设置图片根目录</span><br><span class="line">设置为当前文档同名目录</span><br><span class="line">ok</span><br></pre></td></tr></table></figure>
 
 <img src="/2021/08/13/Hexo-next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/Snipaste_2021-08-14_17-24-07.png" alt="Snipaste_2021-08-14_17-24-07" style="zoom:80%;">
