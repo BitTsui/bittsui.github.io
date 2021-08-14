@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tsuish.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<meta name="description" content="简介：对hexo博客的next主题进行优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客优化">
+<meta property="og:url" content="https://tsuish.github.io/2021/08/13/Hexo+next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/index.html">
+<meta property="og:site_name" content="cuishuohao">
+<meta property="og:description" content="简介：对hexo博客的next主题进行优化">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-13T12:18:19.000Z">
+<meta property="article:modified_time" content="2021-08-14T08:01:52.699Z">
+<meta property="article:author" content="cuishuohao">
+<meta property="article:tag" content="tags">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://tsuish.github.io/2021/08/13/Hexo+next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://tsuish.github.io/2021/08/13/Hexo+next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/","path":"2021/08/13/Hexo+next主题优化/","title":"Hexo博客优化"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo博客优化 | cuishuohao</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/tsuish/clicklove.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">cuishuohao</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9next%E4%B8%BB%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">为什么选择next主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">next主题优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#next%E9%98%85%E8%AF%BB%E8%BF%9B%E5%BA%A6%E6%9D%A1"><span class="nav-number">2.1.</span> <span class="nav-text">next阅读进度条</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">3.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E6%9C%BA%E6%9C%8D%E5%8A%A1%E5%99%A8-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="nav-number">3.1.</span> <span class="nav-text">手机服务器+内网穿透</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-Pages"><span class="nav-number">3.2.</span> <span class="nav-text">GitHub Pages</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="cuishuohao"
+      src="/images/tsuish.jpg">
+  <p class="site-author-name" itemprop="name">cuishuohao</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tsuish.github.io/2021/08/13/Hexo+next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tsuish.jpg">
+      <meta itemprop="name" content="cuishuohao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cuishuohao">
+    </span>
+
+    
+      <header class="post-header">
+        
+
+        <h1 class="post-title" itemprop="name headline">
+          Hexo博客优化
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-13 20:18:19" itemprop="dateCreated datePublished" datetime="2021-08-13T20:18:19+08:00">2021-08-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-14 16:01:52" itemprop="dateModified" datetime="2021-08-14T16:01:52+08:00">2021-08-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/categories/" itemprop="url" rel="index"><span itemprop="name">categories</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description">简介：对hexo博客的next主题进行优化</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="为什么选择next主题"><a href="#为什么选择next主题" class="headerlink" title="为什么选择next主题"></a>为什么选择next主题</h1><p>默认的主题是landscope，没有访问量和站内搜索的功能。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">next主题</a>可扩展性比较好，集成了许多功能，比较方面自己动手，所以选择了这个主题。</p>
+<h1 id="next主题优化"><a href="#next主题优化" class="headerlink" title="next主题优化"></a>next主题优化</h1><p>大部分参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/weidong_y/article/details/90904781">https://blog.csdn.net/weidong_y/article/details/90904781</a></p>
+<h2 id="next阅读进度条"><a href="#next阅读进度条" class="headerlink" title="next阅读进度条"></a>next阅读进度条</h2><p>看到好多方法都是用的Progress module，再修改主题配置的pace，但是我的next是8.7.0版的，似乎不再支持这个方式了。<br>​</p>
+<p>阅读next的主题配置文件，发现了reading_progress，做出以下修改后，出现顶部进度条。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Reading progress bar</span></span><br><span class="line">reading_progress:</span><br><span class="line">  enable: true</span><br><span class="line"><span class="meta">  #</span><span class="bash"> Available values: left | right</span></span><br><span class="line">  start_at: left</span><br><span class="line"><span class="meta">  #</span><span class="bash"> Available values: top | bottom</span></span><br><span class="line">  position: top</span><br><span class="line">  reversed: false</span><br><span class="line">  color: &quot;#37c6c0&quot;</span><br><span class="line">  height: 5px</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<p>next主题优化 - 参考：<br>​</p>
+<p>官方文档 - next开始使用：<a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/getting-started.html">https://theme-next.iissnan.com/getting-started.html</a><br>官方文档 - next主题配置：<a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/theme-settings.html">https://theme-next.iissnan.com/theme-settings.html</a><br>​</p>
+<p>next主题优秀博客：<a target="_blank" rel="noopener" href="https://qidaink.github.io/posts/e2e8c66d/">https://qidaink.github.io/posts/e2e8c66d/</a><br>其他主题优秀博客：<br><a target="_blank" rel="noopener" href="https://enfangzhong.github.io/">https://enfangzhong.github.io/</a><br><a target="_blank" rel="noopener" href="https://shen-yu.gitee.io/">https://shen-yu.gitee.io/</a></p>
+<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>手机服务器可以作为暂时的服务器，新建一个生活博客，部署到手机服务器。<br>​</p>
+<p>github pages可以作为长期服务器，发布技术方面的博客。</p>
+<h2 id="手机服务器-内网穿透"><a href="#手机服务器-内网穿透" class="headerlink" title="手机服务器+内网穿透"></a>手机服务器+内网穿透</h2><p>这一种方式挺新鲜的，但是也有不可避免的缺点：    </p>
+<ul>
+<li>手机需要一直开着，不适合做长期服务器，可以作为暂时服务器使用。</li>
+<li>内网穿透用的别人提供的免费版，不稳定，容易崩。</li>
+</ul>
+<h2 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h2><p>部署hexo博客到GitHub pages的教程一大堆，这里不再赘述。需要注意的有两点，一是要选择ssh密钥的方式提交，二是配置url。全部在根目录的_config.yml中配置</p>
+<p>首先看<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wynjauu/articles/10568445.html">git两种连接方式:ssh和http配置介绍</a>。http的方式，如果只是使用一两次的话，确实比较方便，拿来就用。但是如果使用次数比较多，比如需要经常hexo d部署，就不好了，因为比较不稳定，总是卡死。关于卡死，网上给出的办法是把http连接的方式更换为ssh连接的方式。<br>​</p>
+<p>在根目录的_config.yml中找到deploy配置，配置如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Deployment</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Docs: https://hexo.io/docs/one-command-deployment</span></span></span><br><span class="line">deploy: </span><br><span class="line">  type: git</span><br><span class="line">  repo: </span><br><span class="line">    github: git@github.com:tsuish/tsuish.github.io.git,deploy</span><br></pre></td></tr></table></figure>
+
+
+<p>设置ssh连接的步骤如下，需要在命令行中操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 检查是否有.ssh的文件夹</span></span><br><span class="line">cd ~/.ssh</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果没有.ssh文件夹，先查看自己的邮箱，再连续三个回车生成私钥。</span></span><br><span class="line">git config user.email</span><br><span class="line">ssh-keygen -t rsa -C &quot;xxxx@qq.com&quot;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入生成私钥的文件夹， C:\Users\[yourname]\.ssh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 右键git bash，复制cat后出现的内容</span></span><br><span class="line">cat id_rsa.pub</span><br><span class="line"></span><br><span class="line">登录Github，点击头像下的settings，添加ssh。新建一个new ssh key，将id_rsa.pub文件里的内容粘贴上去</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T git@github.com</span></span><br><span class="line">Hi tsuish! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+
+
+<p>如果部署后，打开博客发现样式不对，需要在hexo根目录的_config.yml中配置url，配置如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> URL</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span></span></span><br><span class="line">url: &#x27;https://tsuish.github.io/&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>参考：<br>同时部署到多个pages：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qintian888/article/details/82195097">https://blog.csdn.net/qintian888/article/details/82195097</a><br>OpenSSL SSL报错：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43945983/article/details/110882074">https://blog.csdn.net/weixin_43945983/article/details/110882074</a><br>GitHub如何配置SSH Key：[<a target="_blank" rel="noopener" href="https://blog.csdn.net/u013778905/article/details/83501204]">https://blog.csdn.net/u013778905/article/details/83501204]</a>(</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/tags/" rel="tag"><i class="fa fa-tag"></i> tags</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/11/Auto-JS/" rel="prev" title="Auto.JS">
+                  <i class="fa fa-chevron-left"></i> Auto.JS
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cuishuohao</span>
+</div>
+<div class="busuanzi-count">
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共1.9k字</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
