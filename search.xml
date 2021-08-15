@@ -1,8 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>有序单链表合并</title>
+    <url>./p/16c6/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="./p/16c6/Snipaste_2021-08-15_16-22-01.png" alt="Snipaste_2021-08-15_16-22-01"></p>
+<h1 id="初始代码"><a href="#初始代码" class="headerlink" title="初始代码"></a>初始代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">typedef struct Inode&#123;</span><br><span class="line">	int data;</span><br><span class="line">	struct Inode *next;</span><br><span class="line">&#125;Inode, *lklist;</span><br><span class="line"></span><br><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="我的笨方法"><a href="#我的笨方法" class="headerlink" title="我的笨方法"></a>我的笨方法</h1><h2 id="解题关键代码"><a href="#解题关键代码" class="headerlink" title="解题关键代码"></a>解题关键代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)&#123;</span><br><span class="line">	while(la!=NULL&amp;&amp;lb!=NULL)&#123;</span><br><span class="line">		if(la-&gt;data &lt; lb-&gt;data)&#123;</span><br><span class="line">			LinkListAdd(lc, la-&gt;data);</span><br><span class="line">			la = la-&gt;next;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">			lb = lb-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	while(la!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, la-&gt;data);</span><br><span class="line">		la = la-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	while(lb!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">		lb = lb-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;stdbool.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct Inode&#123;</span><br><span class="line">	int data;</span><br><span class="line">	struct Inode *next;</span><br><span class="line">&#125;Inode, *lklist;</span><br><span class="line"></span><br><span class="line">//不带头结点</span><br><span class="line">bool InitNullList(lklist &amp;L)&#123;</span><br><span class="line">  L=NULL;   //空表，暂时还没有任何结点。防止脏数据。 </span><br><span class="line">  return true; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LinkListAdd(lklist &amp;L,int e)&#123;</span><br><span class="line">	Inode *p=L;	//指针p指向当前扫描到的结点 </span><br><span class="line">	</span><br><span class="line">	Inode *s = (Inode *)malloc(sizeof(Inode));</span><br><span class="line">	s-&gt;data = e;</span><br><span class="line">	s-&gt;next = NULL;</span><br><span class="line">	</span><br><span class="line">	if(p==NULL)&#123;</span><br><span class="line">		L = s;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	while(p-&gt;next!=NULL)&#123;	//循环找到末尾结点 </span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	p-&gt;next=s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//打印输出单链表 </span><br><span class="line">//---------------start------------------- </span><br><span class="line">void LinkListPrint(lklist L)&#123;</span><br><span class="line">	Inode *p=L;	//指针p指向当前扫描到的结点 </span><br><span class="line">	</span><br><span class="line">	if(L==NULL)&#123;</span><br><span class="line">		printf(&quot;NULL\n&quot;);</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">//	while无法输出最后一个结点的值 </span><br><span class="line">	while(p-&gt;next!=NULL)&#123;</span><br><span class="line">		printf(&quot;%d\t&quot;,p-&gt;data);</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">//	此处补充输出最后一个结点的值 </span><br><span class="line">	if(p-&gt;next==NULL)&#123;</span><br><span class="line">		printf(&quot;%d\n&quot;,p-&gt;data);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)&#123;</span><br><span class="line">	while(la!=NULL&amp;&amp;lb!=NULL)&#123;</span><br><span class="line">		if(la-&gt;data &lt; lb-&gt;data)&#123;</span><br><span class="line">			LinkListAdd(lc, la-&gt;data);</span><br><span class="line">			la = la-&gt;next;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">			lb = lb-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	while(la!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, la-&gt;data);</span><br><span class="line">		la = la-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	while(lb!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">		lb = lb-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main()&#123;</span><br><span class="line">	lklist la,lb,lc;</span><br><span class="line">	</span><br><span class="line">	InitNullList(la);</span><br><span class="line">	LinkListAdd(la,1);</span><br><span class="line">	LinkListAdd(la,3);</span><br><span class="line">	LinkListAdd(la,4);</span><br><span class="line">	LinkListAdd(la,6);</span><br><span class="line">	printf(&quot;-----输出la------\n\n&quot;);</span><br><span class="line">	LinkListPrint(la);</span><br><span class="line">	</span><br><span class="line">	InitNullList(lb);</span><br><span class="line">	LinkListAdd(lb,2);</span><br><span class="line">	LinkListAdd(lb,5);</span><br><span class="line">	LinkListAdd(lb,7);</span><br><span class="line">	LinkListAdd(lb,8);</span><br><span class="line">	LinkListAdd(lb,9);</span><br><span class="line">	printf(&quot;-----输出lb------\n\n&quot;);</span><br><span class="line">	LinkListPrint(lb);</span><br><span class="line">	</span><br><span class="line">	InitNullList(lc);</span><br><span class="line">	mergelklist(la,lb,lc);</span><br><span class="line">	printf(&quot;-----输出合并后的lc------\n&quot;);</span><br><span class="line">	LinkListPrint(lc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><p><img src="./p/16c6/Snipaste_2021-08-15_16-30-46.png" alt="Snipaste_2021-08-15_16-30-46"></p>
+]]></content>
+      <categories>
+        <category>数据结构与程序设计</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Dev-Cpp的使用</title>
+    <url>./p/df03/</url>
+    <content><![CDATA[<h1 id="取消自动补全"><a href="#取消自动补全" class="headerlink" title="取消自动补全"></a>取消自动补全</h1><p>工具-&gt;编辑器选项-&gt;“代码补全”页：</p>
+<p>​    1、去掉“允许代码补全”勾选项（这个是代码的提示，可以不用去掉）</p>
+<p>​    2、去掉“启动符合匹配”</p>
+<p>-&gt;“确定”按钮</p>
+<h1 id="新建一个项目"><a href="#新建一个项目" class="headerlink" title="新建一个项目"></a>新建一个项目</h1><ul>
+<li>文件-&gt;新建-&gt;项目</li>
+<li>选择Empty Project</li>
+<li>命名项目名称</li>
+<li>确认</li>
+</ul>
+<p>参考：<br>c语言自己写一个.h的头文件：<a href="https://blog.csdn.net/Wolf_xujie/article/details/102166384">https://blog.csdn.net/Wolf_xujie/article/details/102166384</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+        <category>数据结构与程序设计</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo+next主题优化</title>
+    <url>./p/784a/</url>
+    <content><![CDATA[<h1 id="为什么选择next主题"><a href="#为什么选择next主题" class="headerlink" title="为什么选择next主题"></a>为什么选择next主题</h1><p>默认的主题是landscope，没有访问量和站内搜索的功能。</p>
+<p><a href="https://github.com/next-theme/hexo-theme-next">next主题</a>可扩展性比较好，集成了许多功能，比较方便自己动手，所以选择了这个主题。</p>
+<h1 id="next主题优化"><a href="#next主题优化" class="headerlink" title="next主题优化"></a>next主题优化</h1><p>大部分参考<a href="https://blog.csdn.net/weidong_y/article/details/90904781">https://blog.csdn.net/weidong_y/article/details/90904781</a></p>
+<h2 id="next阅读进度条"><a href="#next阅读进度条" class="headerlink" title="next阅读进度条"></a>next阅读进度条</h2><p>看到好多方法都是用的Progress module，再修改主题配置的pace，但是我的next是8.7.0版的，似乎不再支持这个方式了。<br>​</p>
+<p>阅读next的主题配置文件，发现了reading_progress，做出以下修改后，出现顶部进度条。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Reading progress bar</span></span><br><span class="line">reading_progress:</span><br><span class="line">  enable: true</span><br><span class="line"><span class="meta">  #</span><span class="bash"> Available values: left | right</span></span><br><span class="line">  start_at: left</span><br><span class="line"><span class="meta">  #</span><span class="bash"> Available values: top | bottom</span></span><br><span class="line">  position: top</span><br><span class="line">  reversed: false</span><br><span class="line">  color: &quot;#37c6c0&quot;</span><br><span class="line">  height: 5px</span><br></pre></td></tr></table></figure>
+
+
+
+<p>右下角显示当前浏览百分比</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">打开 themes/next/_config.yml ，</span><br><span class="line">搜索关键字 scrollpercent </span><br><span class="line">把 false 改为 true。</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p>参考：<a href="https://www.jianshu.com/p/f72aaad7b852">https://www.jianshu.com/p/f72aaad7b852</a></p>
+<p>同时在本地对Typora做适配，方法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 - 图像 - 设置图片根目录</span><br><span class="line">设置为当前文档同名目录</span><br><span class="line">ok</span><br></pre></td></tr></table></figure>
+
+<img src="./p/784a/Snipaste_2021-08-14_17-24-07.png" alt="Snipaste_2021-08-14_17-24-07" style="zoom:80%;">
+
+
+
+<p>给文章和图片加一个边框阴影效果，效果很好</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">打开next\source\css\_common\components\post\post-body.styl</span><br><span class="line"></span><br><span class="line"># 给文章加一个边框阴影效果</span><br><span class="line">.post-body &#123;</span><br><span class="line">  padding: 25px;</span><br><span class="line">  -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">  -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 给图片加一个边框阴影效果</span><br><span class="line">.post-body &#123;</span><br><span class="line">  iframe, img, video, embed &#123;</span><br><span class="line">    -webkit-box-shadow: 0 0 50px rgba(202, 203, 203, .9);</span><br><span class="line">    -moz-box-shadow: 0 0 50px rgba(202, 203, 204, .9);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://www.himmy.cn/2019/07/06/hexo%E5%8D%9A%E5%AE%A2next%E4%B8%BB%E9%A2%98%E4%B8%8B%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C/">Hexo博客NexT主题下添加文章边框阴影效果</a></p>
+<h2 id="永久链接"><a href="#永久链接" class="headerlink" title="永久链接"></a>永久链接</h2><p>由于我的博客文章较少，所以采用尽量使文章链接更短的方式，如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">permalink: p/:abbrlink/</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc16 #support crc16(default) and crc32</span><br><span class="line">  rep: hex   #support dec(default) and hex</span><br></pre></td></tr></table></figure>
+
+
+
+<p>参考：<a href="https://blog.csdn.net/Mculover666/article/details/103137719/">优化文章永久链接为数字编号</a></p>
+<hr>
+<p>next主题优化 - 参考：<br>​</p>
+<p>官方文档 - next开始使用：<a href="https://theme-next.iissnan.com/getting-started.html">https://theme-next.iissnan.com/getting-started.html</a><br>官方文档 - next主题配置：<a href="https://theme-next.iissnan.com/theme-settings.html">https://theme-next.iissnan.com/theme-settings.html</a><br>​</p>
+<p>next主题优秀博客：<a href="https://qidaink.github.io/posts/e2e8c66d/">https://qidaink.github.io/posts/e2e8c66d/</a><br>其他主题优秀博客：<br><a href="https://enfangzhong.github.io/">https://enfangzhong.github.io/</a><br><a href="https://shen-yu.gitee.io/">https://shen-yu.gitee.io/</a></p>
+<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>手机服务器可以作为暂时的服务器，新建一个生活博客，部署到手机服务器。</p>
+<p>github pages可以作为长期服务器，发布技术方面的博客。</p>
+<h2 id="手机服务器-内网穿透"><a href="#手机服务器-内网穿透" class="headerlink" title="手机服务器+内网穿透"></a>手机服务器+内网穿透</h2><p>这一种方式挺新鲜的，但是也有不可避免的缺点：    </p>
+<ul>
+<li>手机需要一直开着，不适合做长期服务器，可以作为暂时服务器使用。</li>
+<li>内网穿透用的别人提供的免费版，不稳定，容易崩。</li>
+</ul>
+<p>修改本地启动服务时的默认端口：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">打开node_modules\hexo-server\index.js文件</span><br><span class="line">找到port，将4000修改为其他端口</span><br></pre></td></tr></table></figure>
+
+
+
+<p>参考：<a href="http://www.leiyawu.com/2018/04/20/hexo%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3/">hexo添加admin,修改默认端口</a></p>
+<h2 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h2><p>部署hexo博客到GitHub pages的教程一大堆，这里不再赘述。需要注意的有两点，一是要选择ssh密钥的方式提交，二是配置url。全部在根目录的_config.yml中配置</p>
+<p>首先看<a href="https://www.cnblogs.com/wynjauu/articles/10568445.html">git两种连接方式:ssh和http配置介绍</a>。http的方式，如果只是使用一两次的话，确实比较方便，拿来就用。但是如果使用次数比较多，比如需要经常hexo d部署，就不好了，因为比较不稳定，总是卡死。关于卡死，网上给出的办法是把http连接的方式更换为ssh连接的方式。<br>​</p>
+<p>在根目录的_config.yml中找到deploy配置，配置如下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Deployment</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Docs: https://hexo.io/docs/one-command-deployment</span></span></span><br><span class="line">deploy: </span><br><span class="line">  type: git</span><br><span class="line">  repo: </span><br><span class="line">    github: git@github.com:tsuish/tsuish.github.io.git,deploy</span><br></pre></td></tr></table></figure>
+
+
+<p>设置ssh连接的步骤如下，需要在命令行中操作</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 检查是否有.ssh的文件夹</span></span><br><span class="line">cd ~/.ssh</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果没有.ssh文件夹，先查看自己的邮箱，再连续三个回车生成私钥。</span></span><br><span class="line">git config user.email</span><br><span class="line">ssh-keygen -t rsa -C &quot;xxxx@qq.com&quot;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入生成私钥的文件夹， C:\Users\[yourname]\.ssh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 右键git bash，复制cat后出现的内容</span></span><br><span class="line">cat id_rsa.pub</span><br><span class="line"></span><br><span class="line">登录Github，点击头像下的settings，添加ssh。新建一个new ssh key，将id_rsa.pub文件里的内容粘贴上去</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T git@github.com</span></span><br><span class="line">Hi tsuish! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+
+
+<p>如果部署后，打开博客发现样式不对，需要在hexo根目录的_config.yml中配置url，配置如下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> URL</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span></span></span><br><span class="line">url: &#x27;https://tsuish.github.io/&#x27;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>小提示：</p>
+<p>每次部署后，github pages都会有一定延时，这是正常的，稍等一会就好了。</p>
+<p>busuanzi也会有延时，要等的时间比较久。busuanzi的计算结果，似乎与链接有关。</p>
+<p>参考：<br>同时部署到多个pages：<a href="https://blog.csdn.net/qintian888/article/details/82195097">https://blog.csdn.net/qintian888/article/details/82195097</a><br>OpenSSL SSL报错：<a href="https://blog.csdn.net/weixin_43945983/article/details/110882074">https://blog.csdn.net/weixin_43945983/article/details/110882074</a><br>GitHub如何配置SSH Key：<a href="https://blog.csdn.net/u013778905/article/details/83501204">https://blog.csdn.net/u013778905/article/details/83501204</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Auto.JS</title>
+    <url>./p/2ae0/</url>
+    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Auto.JS简介与教程<br><a href="https://www.jianshu.com/p/4602db0618df">https://www.jianshu.com/p/4602db0618df</a></p>
+<p>B站教程<br><a href="https://space.bilibili.com/21486893/video">https://space.bilibili.com/21486893/video</a></p>
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><p>手机安装：<br>Auto.js 4.1.0：<a href="https://cuishuohao.lanzous.com/iFj24n9g8ab">https://cuishuohao.lanzous.com/iFj24n9g8ab</a><br>Auto.js打包插件：<a href="https://cuishuohao.lanzous.com/iugZ5n9g83e">https://cuishuohao.lanzous.com/iugZ5n9g83e</a><br>Auto.js Pro（仅备用）：<a href="https://cuishuohao.lanzous.com/iXd62n9g8ta">https://cuishuohao.lanzous.com/iXd62n9g8ta</a><br>电脑vscode插件：<br><a href="https://github.com/hyb1996/Auto.js-VSCode-Extension">https://github.com/hyb1996/Auto.js-VSCode-Extension</a></p>
+<p>打开服务：        Ctrl+Shift+P：Auto.js: StartServer<br>保存Js到手机：  Ctrl+Shift+P：Auto.js: Save On Device<br>在手机上运行：  F5</p>
+<h1 id="手机需要权限"><a href="#手机需要权限" class="headerlink" title="手机需要权限"></a>手机需要权限</h1><p>进入开发者模式（小米note3）:我的设备–全部参数–MIUI版本，连续点击<br>​</p>
+<p>无障碍服务<br>悬浮窗<br>​</p>
+<p>安装Auto.JS APK：在手机上安装Auto.js_V4.1.1_Alpha2<br>注：App会自动引导开启“无障碍服务”。以小米为例，按程序指示，在程序跳转到的页面点击“更多已下载的服务”-&gt;“Auto.js”-&gt;开启服务</p>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/90065914">https://zhuanlan.zhihu.com/p/90065914</a></p>
+<p><strong>小米（以红米note9为例）</strong><br>无障碍服务：<br>设置–更多设置–无障碍–已下载的服务–Auto.js–开启服务<br>悬浮窗：<br>设置–应用设置–授权管理–应用权限管理–Auto.js–显示悬浮窗–始终允许</p>
+<p><strong>魅族（以魅蓝note5为例）</strong><br>无障碍服务：<br>设置–辅助功能–无障碍–服务–Auto.js–开启<br>悬浮窗：<br>设置–应用管理–应用权限–Auto.js–悬浮窗–开启</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>参考：<br><a href="https://www.jb51.net/article/186148.htm">https://www.jb51.net/article/186148.htm</a></p>
+<p>官方文档：<br><a href="https://hyb1996.github.io/AutoJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0">https://hyb1996.github.io/AutoJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0</a></p>
+<p>swipe滑动文档：<br><a href="https://hyb1996.github.io/AutoJs-Docs/#/coordinatesBasedAutomation?id=swipex1-y1-x2-y2-duration">https://hyb1996.github.io/AutoJs-Docs/#/coordinatesBasedAutomation?id=swipex1-y1-x2-y2-duration</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Android手机搭建hexo博客</title>
-    <url>/p/c8b9/</url>
+    <url>./p/c8b9/</url>
     <content><![CDATA[<p>2021年8月11日</p>
 <h1 id="电脑搭建"><a href="#电脑搭建" class="headerlink" title="电脑搭建"></a>电脑搭建</h1><p>今天逛QQ空间，看到丁魏武发了一个自己的博客地址。我向他学习，也试着搭建一个博客。<br>​</p>
 <p>参考：<br>丁魏武博客地址：<a href="http://weiwuding.top/">http://weiwuding.top</a><br>hexo史上最全搭建教程：<a href="https://blog.csdn.net/sinat_37781304/article/details/82729029">https://blog.csdn.net/sinat_37781304/article/details/82729029</a><br>npm更换镜像源操作：<a href="https://blog.csdn.net/qq_38253549/article/details/114081724">https://blog.csdn.net/qq_38253549/article/details/114081724</a></p>
@@ -60,147 +201,6 @@
 ]]></content>
       <categories>
         <category>工具</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Auto.JS</title>
-    <url>/p/2ae0/</url>
-    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Auto.JS简介与教程<br><a href="https://www.jianshu.com/p/4602db0618df">https://www.jianshu.com/p/4602db0618df</a></p>
-<p>B站教程<br><a href="https://space.bilibili.com/21486893/video">https://space.bilibili.com/21486893/video</a></p>
-<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><p>手机安装：<br>Auto.js 4.1.0：<a href="https://cuishuohao.lanzous.com/iFj24n9g8ab">https://cuishuohao.lanzous.com/iFj24n9g8ab</a><br>Auto.js打包插件：<a href="https://cuishuohao.lanzous.com/iugZ5n9g83e">https://cuishuohao.lanzous.com/iugZ5n9g83e</a><br>Auto.js Pro（仅备用）：<a href="https://cuishuohao.lanzous.com/iXd62n9g8ta">https://cuishuohao.lanzous.com/iXd62n9g8ta</a><br>电脑vscode插件：<br><a href="https://github.com/hyb1996/Auto.js-VSCode-Extension">https://github.com/hyb1996/Auto.js-VSCode-Extension</a></p>
-<p>打开服务：        Ctrl+Shift+P：Auto.js: StartServer<br>保存Js到手机：  Ctrl+Shift+P：Auto.js: Save On Device<br>在手机上运行：  F5</p>
-<h1 id="手机需要权限"><a href="#手机需要权限" class="headerlink" title="手机需要权限"></a>手机需要权限</h1><p>进入开发者模式（小米note3）:我的设备–全部参数–MIUI版本，连续点击<br>​</p>
-<p>无障碍服务<br>悬浮窗<br>​</p>
-<p>安装Auto.JS APK：在手机上安装Auto.js_V4.1.1_Alpha2<br>注：App会自动引导开启“无障碍服务”。以小米为例，按程序指示，在程序跳转到的页面点击“更多已下载的服务”-&gt;“Auto.js”-&gt;开启服务</p>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/90065914">https://zhuanlan.zhihu.com/p/90065914</a></p>
-<p><strong>小米（以红米note9为例）</strong><br>无障碍服务：<br>设置–更多设置–无障碍–已下载的服务–Auto.js–开启服务<br>悬浮窗：<br>设置–应用设置–授权管理–应用权限管理–Auto.js–显示悬浮窗–始终允许</p>
-<p><strong>魅族（以魅蓝note5为例）</strong><br>无障碍服务：<br>设置–辅助功能–无障碍–服务–Auto.js–开启<br>悬浮窗：<br>设置–应用管理–应用权限–Auto.js–悬浮窗–开启</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>参考：<br><a href="https://www.jb51.net/article/186148.htm">https://www.jb51.net/article/186148.htm</a></p>
-<p>官方文档：<br><a href="https://hyb1996.github.io/AutoJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0">https://hyb1996.github.io/AutoJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0</a></p>
-<p>swipe滑动文档：<br><a href="https://hyb1996.github.io/AutoJs-Docs/#/coordinatesBasedAutomation?id=swipex1-y1-x2-y2-duration">https://hyb1996.github.io/AutoJs-Docs/#/coordinatesBasedAutomation?id=swipex1-y1-x2-y2-duration</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Dev-Cpp的使用</title>
-    <url>/p/df03/</url>
-    <content><![CDATA[<h1 id="取消自动补全"><a href="#取消自动补全" class="headerlink" title="取消自动补全"></a>取消自动补全</h1><p>工具-&gt;编辑器选项-&gt;“代码补全”页：</p>
-<p>​    1、去掉“允许代码补全”勾选项（这个是代码的提示，可以不用去掉）</p>
-<p>​    2、去掉“启动符合匹配”</p>
-<p>-&gt;“确定”按钮</p>
-<h1 id="新建一个项目"><a href="#新建一个项目" class="headerlink" title="新建一个项目"></a>新建一个项目</h1><ul>
-<li>文件-&gt;新建-&gt;项目</li>
-<li>选择Empty Project</li>
-<li>命名项目名称</li>
-<li>确认</li>
-</ul>
-<p>参考：<br>c语言自己写一个.h的头文件：<a href="https://blog.csdn.net/Wolf_xujie/article/details/102166384">https://blog.csdn.net/Wolf_xujie/article/details/102166384</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-        <category>数据结构与程序设计</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>hexo+next主题优化</title>
-    <url>/p/784a/</url>
-    <content><![CDATA[<h1 id="为什么选择next主题"><a href="#为什么选择next主题" class="headerlink" title="为什么选择next主题"></a>为什么选择next主题</h1><p>默认的主题是landscope，没有访问量和站内搜索的功能。</p>
-<p><a href="https://github.com/next-theme/hexo-theme-next">next主题</a>可扩展性比较好，集成了许多功能，比较方便自己动手，所以选择了这个主题。</p>
-<h1 id="next主题优化"><a href="#next主题优化" class="headerlink" title="next主题优化"></a>next主题优化</h1><p>大部分参考<a href="https://blog.csdn.net/weidong_y/article/details/90904781">https://blog.csdn.net/weidong_y/article/details/90904781</a></p>
-<h2 id="next阅读进度条"><a href="#next阅读进度条" class="headerlink" title="next阅读进度条"></a>next阅读进度条</h2><p>看到好多方法都是用的Progress module，再修改主题配置的pace，但是我的next是8.7.0版的，似乎不再支持这个方式了。<br>​</p>
-<p>阅读next的主题配置文件，发现了reading_progress，做出以下修改后，出现顶部进度条。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Reading progress bar</span></span><br><span class="line">reading_progress:</span><br><span class="line">  enable: true</span><br><span class="line"><span class="meta">  #</span><span class="bash"> Available values: left | right</span></span><br><span class="line">  start_at: left</span><br><span class="line"><span class="meta">  #</span><span class="bash"> Available values: top | bottom</span></span><br><span class="line">  position: top</span><br><span class="line">  reversed: false</span><br><span class="line">  color: &quot;#37c6c0&quot;</span><br><span class="line">  height: 5px</span><br></pre></td></tr></table></figure>
-
-
-
-<p>右下角显示当前浏览百分比</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">打开 themes/next/_config.yml ，</span><br><span class="line">搜索关键字 scrollpercent </span><br><span class="line">把 false 改为 true。</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p>参考：<a href="https://www.jianshu.com/p/f72aaad7b852">https://www.jianshu.com/p/f72aaad7b852</a></p>
-<p>同时在本地对Typora做适配，方法如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 - 图像 - 设置图片根目录</span><br><span class="line">设置为当前文档同名目录</span><br><span class="line">ok</span><br></pre></td></tr></table></figure>
-
-<img src="/p/784a/Snipaste_2021-08-14_17-24-07.png" alt="Snipaste_2021-08-14_17-24-07" style="zoom:80%;">
-
-
-
-<p>给文章和图片加一个边框阴影效果，效果很好</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">打开next\source\css\_common\components\post\post-body.styl</span><br><span class="line"></span><br><span class="line"># 给文章加一个边框阴影效果</span><br><span class="line">.post-body &#123;</span><br><span class="line">  padding: 25px;</span><br><span class="line">  -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">  -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 给图片加一个边框阴影效果</span><br><span class="line">.post-body &#123;</span><br><span class="line">  iframe, img, video, embed &#123;</span><br><span class="line">    -webkit-box-shadow: 0 0 50px rgba(202, 203, 203, .9);</span><br><span class="line">    -moz-box-shadow: 0 0 50px rgba(202, 203, 204, .9);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>参考：<a href="https://www.himmy.cn/2019/07/06/hexo%E5%8D%9A%E5%AE%A2next%E4%B8%BB%E9%A2%98%E4%B8%8B%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C/">Hexo博客NexT主题下添加文章边框阴影效果</a></p>
-<h2 id="永久链接"><a href="#永久链接" class="headerlink" title="永久链接"></a>永久链接</h2><p>由于我的博客文章较少，所以采用尽量使文章链接更短的方式，如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">permalink: p/:abbrlink/</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc16 #support crc16(default) and crc32</span><br><span class="line">  rep: hex   #support dec(default) and hex</span><br></pre></td></tr></table></figure>
-
-
-
-<p>参考：<a href="https://blog.csdn.net/Mculover666/article/details/103137719/">优化文章永久链接为数字编号</a></p>
-<hr>
-<p>next主题优化 - 参考：<br>​</p>
-<p>官方文档 - next开始使用：<a href="https://theme-next.iissnan.com/getting-started.html">https://theme-next.iissnan.com/getting-started.html</a><br>官方文档 - next主题配置：<a href="https://theme-next.iissnan.com/theme-settings.html">https://theme-next.iissnan.com/theme-settings.html</a><br>​</p>
-<p>next主题优秀博客：<a href="https://qidaink.github.io/posts/e2e8c66d/">https://qidaink.github.io/posts/e2e8c66d/</a><br>其他主题优秀博客：<br><a href="https://enfangzhong.github.io/">https://enfangzhong.github.io/</a><br><a href="https://shen-yu.gitee.io/">https://shen-yu.gitee.io/</a></p>
-<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>手机服务器可以作为暂时的服务器，新建一个生活博客，部署到手机服务器。</p>
-<p>github pages可以作为长期服务器，发布技术方面的博客。</p>
-<h2 id="手机服务器-内网穿透"><a href="#手机服务器-内网穿透" class="headerlink" title="手机服务器+内网穿透"></a>手机服务器+内网穿透</h2><p>这一种方式挺新鲜的，但是也有不可避免的缺点：    </p>
-<ul>
-<li>手机需要一直开着，不适合做长期服务器，可以作为暂时服务器使用。</li>
-<li>内网穿透用的别人提供的免费版，不稳定，容易崩。</li>
-</ul>
-<p>修改本地启动服务时的默认端口：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">打开node_modules\hexo-server\index.js文件</span><br><span class="line">找到port，将4000修改为其他端口</span><br></pre></td></tr></table></figure>
-
-
-
-<p>参考：<a href="http://www.leiyawu.com/2018/04/20/hexo%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3/">hexo添加admin,修改默认端口</a></p>
-<h2 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h2><p>部署hexo博客到GitHub pages的教程一大堆，这里不再赘述。需要注意的有两点，一是要选择ssh密钥的方式提交，二是配置url。全部在根目录的_config.yml中配置</p>
-<p>首先看<a href="https://www.cnblogs.com/wynjauu/articles/10568445.html">git两种连接方式:ssh和http配置介绍</a>。http的方式，如果只是使用一两次的话，确实比较方便，拿来就用。但是如果使用次数比较多，比如需要经常hexo d部署，就不好了，因为比较不稳定，总是卡死。关于卡死，网上给出的办法是把http连接的方式更换为ssh连接的方式。<br>​</p>
-<p>在根目录的_config.yml中找到deploy配置，配置如下</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Deployment</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Docs: https://hexo.io/docs/one-command-deployment</span></span></span><br><span class="line">deploy: </span><br><span class="line">  type: git</span><br><span class="line">  repo: </span><br><span class="line">    github: git@github.com:tsuish/tsuish.github.io.git,deploy</span><br></pre></td></tr></table></figure>
-
-
-<p>设置ssh连接的步骤如下，需要在命令行中操作</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 检查是否有.ssh的文件夹</span></span><br><span class="line">cd ~/.ssh</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果没有.ssh文件夹，先查看自己的邮箱，再连续三个回车生成私钥。</span></span><br><span class="line">git config user.email</span><br><span class="line">ssh-keygen -t rsa -C &quot;xxxx@qq.com&quot;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入生成私钥的文件夹， C:\Users\[yourname]\.ssh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 右键git bash，复制cat后出现的内容</span></span><br><span class="line">cat id_rsa.pub</span><br><span class="line"></span><br><span class="line">登录Github，点击头像下的settings，添加ssh。新建一个new ssh key，将id_rsa.pub文件里的内容粘贴上去</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T git@github.com</span></span><br><span class="line">Hi tsuish! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
-
-
-<p>如果部署后，打开博客发现样式不对，需要在hexo根目录的_config.yml中配置url，配置如下</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> URL</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span></span></span><br><span class="line">url: &#x27;https://tsuish.github.io/&#x27;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>小提示：</p>
-<p>每次部署后，github pages都会有一定延时，这是正常的，稍等一会就好了。</p>
-<p>busuanzi也会有延时，要等的时间比较久。busuanzi的计算结果，似乎与链接有关。</p>
-<p>参考：<br>同时部署到多个pages：<a href="https://blog.csdn.net/qintian888/article/details/82195097">https://blog.csdn.net/qintian888/article/details/82195097</a><br>OpenSSL SSL报错：<a href="https://blog.csdn.net/weixin_43945983/article/details/110882074">https://blog.csdn.net/weixin_43945983/article/details/110882074</a><br>GitHub如何配置SSH Key：<a href="https://blog.csdn.net/u013778905/article/details/83501204">https://blog.csdn.net/u013778905/article/details/83501204</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>有序单链表合并</title>
-    <url>/p/16c6/</url>
-    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/p/16c6/Snipaste_2021-08-15_16-22-01.png" alt="Snipaste_2021-08-15_16-22-01"></p>
-<h1 id="初始代码"><a href="#初始代码" class="headerlink" title="初始代码"></a>初始代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">typedef struct Inode&#123;</span><br><span class="line">	int data;</span><br><span class="line">	struct Inode *next;</span><br><span class="line">&#125;Inode, *lklist;</span><br><span class="line"></span><br><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="我的笨方法"><a href="#我的笨方法" class="headerlink" title="我的笨方法"></a>我的笨方法</h1><h2 id="解题关键代码"><a href="#解题关键代码" class="headerlink" title="解题关键代码"></a>解题关键代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)&#123;</span><br><span class="line">	while(la!=NULL&amp;&amp;lb!=NULL)&#123;</span><br><span class="line">		if(la-&gt;data &lt; lb-&gt;data)&#123;</span><br><span class="line">			LinkListAdd(lc, la-&gt;data);</span><br><span class="line">			la = la-&gt;next;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">			lb = lb-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	while(la!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, la-&gt;data);</span><br><span class="line">		la = la-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	while(lb!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">		lb = lb-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;stdbool.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct Inode&#123;</span><br><span class="line">	int data;</span><br><span class="line">	struct Inode *next;</span><br><span class="line">&#125;Inode, *lklist;</span><br><span class="line"></span><br><span class="line">//不带头结点</span><br><span class="line">bool InitNullList(lklist &amp;L)&#123;</span><br><span class="line">  L=NULL;   //空表，暂时还没有任何结点。防止脏数据。 </span><br><span class="line">  return true; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LinkListAdd(lklist &amp;L,int e)&#123;</span><br><span class="line">	Inode *p=L;	//指针p指向当前扫描到的结点 </span><br><span class="line">	</span><br><span class="line">	Inode *s = (Inode *)malloc(sizeof(Inode));</span><br><span class="line">	s-&gt;data = e;</span><br><span class="line">	s-&gt;next = NULL;</span><br><span class="line">	</span><br><span class="line">	if(p==NULL)&#123;</span><br><span class="line">		L = s;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	while(p-&gt;next!=NULL)&#123;	//循环找到末尾结点 </span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	p-&gt;next=s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//打印输出单链表 </span><br><span class="line">//---------------start------------------- </span><br><span class="line">void LinkListPrint(lklist L)&#123;</span><br><span class="line">	Inode *p=L;	//指针p指向当前扫描到的结点 </span><br><span class="line">	</span><br><span class="line">	if(L==NULL)&#123;</span><br><span class="line">		printf(&quot;NULL\n&quot;);</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">//	while无法输出最后一个结点的值 </span><br><span class="line">	while(p-&gt;next!=NULL)&#123;</span><br><span class="line">		printf(&quot;%d\t&quot;,p-&gt;data);</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">//	此处补充输出最后一个结点的值 </span><br><span class="line">	if(p-&gt;next==NULL)&#123;</span><br><span class="line">		printf(&quot;%d\n&quot;,p-&gt;data);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)&#123;</span><br><span class="line">	while(la!=NULL&amp;&amp;lb!=NULL)&#123;</span><br><span class="line">		if(la-&gt;data &lt; lb-&gt;data)&#123;</span><br><span class="line">			LinkListAdd(lc, la-&gt;data);</span><br><span class="line">			la = la-&gt;next;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">			lb = lb-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	while(la!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, la-&gt;data);</span><br><span class="line">		la = la-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	while(lb!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">		lb = lb-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main()&#123;</span><br><span class="line">	lklist la,lb,lc;</span><br><span class="line">	</span><br><span class="line">	InitNullList(la);</span><br><span class="line">	LinkListAdd(la,1);</span><br><span class="line">	LinkListAdd(la,3);</span><br><span class="line">	LinkListAdd(la,4);</span><br><span class="line">	LinkListAdd(la,6);</span><br><span class="line">	printf(&quot;-----输出la------\n\n&quot;);</span><br><span class="line">	LinkListPrint(la);</span><br><span class="line">	</span><br><span class="line">	InitNullList(lb);</span><br><span class="line">	LinkListAdd(lb,2);</span><br><span class="line">	LinkListAdd(lb,5);</span><br><span class="line">	LinkListAdd(lb,7);</span><br><span class="line">	LinkListAdd(lb,8);</span><br><span class="line">	LinkListAdd(lb,9);</span><br><span class="line">	printf(&quot;-----输出lb------\n\n&quot;);</span><br><span class="line">	LinkListPrint(lb);</span><br><span class="line">	</span><br><span class="line">	InitNullList(lc);</span><br><span class="line">	mergelklist(la,lb,lc);</span><br><span class="line">	printf(&quot;-----输出合并后的lc------\n&quot;);</span><br><span class="line">	LinkListPrint(lc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><p><img src="/p/16c6/Snipaste_2021-08-15_16-30-46.png" alt="Snipaste_2021-08-15_16-30-46"></p>
-]]></content>
-      <categories>
-        <category>数据结构与程序设计</category>
       </categories>
   </entry>
 </search>
