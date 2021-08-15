@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Dev-Cpp的使用</title>
+    <url>/p/df03/</url>
+    <content><![CDATA[<h1 id="取消自动补全"><a href="#取消自动补全" class="headerlink" title="取消自动补全"></a>取消自动补全</h1><p>工具-&gt;编辑器选项-&gt;“代码补全”页：</p>
+<p>​    1、去掉“允许代码补全”勾选项（这个是代码的提示，可以不用去掉）</p>
+<p>​    2、去掉“启动符合匹配”</p>
+<p>-&gt;“确定”按钮</p>
+<h1 id="新建一个项目"><a href="#新建一个项目" class="headerlink" title="新建一个项目"></a>新建一个项目</h1><ul>
+<li>文件-&gt;新建-&gt;项目</li>
+<li>选择Empty Project</li>
+<li>命名项目名称</li>
+<li>确认</li>
+</ul>
+<p>参考：<br>c语言自己写一个.h的头文件：<a href="https://blog.csdn.net/Wolf_xujie/article/details/102166384">https://blog.csdn.net/Wolf_xujie/article/details/102166384</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+        <category>数据结构与程序设计</category>
+      </categories>
+  </entry>
+  <entry>
     <title>hexo+next主题优化</title>
     <url>/p/784a/</url>
     <content><![CDATA[<h1 id="为什么选择next主题"><a href="#为什么选择next主题" class="headerlink" title="为什么选择next主题"></a>为什么选择next主题</h1><p>默认的主题是landscope，没有访问量和站内搜索的功能。</p>
