@@ -1,25 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>有序单链表合并</title>
-    <url>/p/16c6/</url>
-    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/p/16c6/Snipaste_2021-08-15_16-22-01.png" alt="Snipaste_2021-08-15_16-22-01"></p>
-<h1 id="初始代码"><a href="#初始代码" class="headerlink" title="初始代码"></a>初始代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">typedef struct Inode&#123;</span><br><span class="line">	int data;</span><br><span class="line">	struct Inode *next;</span><br><span class="line">&#125;Inode, *lklist;</span><br><span class="line"></span><br><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)</span><br></pre></td></tr></table></figure>
+    <title>Android手机搭建hexo博客</title>
+    <url>/p/c8b9/</url>
+    <content><![CDATA[<p>2021年8月11日</p>
+<h1 id="电脑搭建"><a href="#电脑搭建" class="headerlink" title="电脑搭建"></a>电脑搭建</h1><p>今天逛QQ空间，看到丁魏武发了一个自己的博客地址。我向他学习，也试着搭建一个博客。<br>​</p>
+<p>参考：<br>丁魏武博客地址：<a href="http://weiwuding.top/">http://weiwuding.top</a><br>hexo史上最全搭建教程：<a href="https://blog.csdn.net/sinat_37781304/article/details/82729029">https://blog.csdn.net/sinat_37781304/article/details/82729029</a><br>npm更换镜像源操作：<a href="https://blog.csdn.net/qq_38253549/article/details/114081724">https://blog.csdn.net/qq_38253549/article/details/114081724</a></p>
+<p>在Windows电脑上搭建成功，但是无法外网访问。<br>​</p>
+<h1 id="手机搭建"><a href="#手机搭建" class="headerlink" title="手机搭建"></a>手机搭建</h1><p>于是想着用手机搭建多好啊。拿出魅蓝note5，开始造。<br>​</p>
+<p>先在手机安装F-Droid，再在F-Droid上下载安装Termux。<br>​</p>
+<p>手机上termux不好操作，于是用cmd通过ssh连接。<br>手机termux启动sshd服务：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">sshd</span><br><span class="line">nmap <span class="number">192.168</span>.<span class="number">31.67</span></span><br></pre></td></tr></table></figure>
+
+
+<p>电脑在cmd用ssh连：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ssh  u0_a103@<span class="number">192.168</span>.<span class="number">31.67</span> <span class="literal">-p</span> <span class="number">8022</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ssh的密码：root</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="我的笨方法"><a href="#我的笨方法" class="headerlink" title="我的笨方法"></a>我的笨方法</h1><h2 id="解题关键代码"><a href="#解题关键代码" class="headerlink" title="解题关键代码"></a>解题关键代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)&#123;</span><br><span class="line">	while(la!=NULL&amp;&amp;lb!=NULL)&#123;</span><br><span class="line">		if(la-&gt;data &lt; lb-&gt;data)&#123;</span><br><span class="line">			LinkListAdd(lc, la-&gt;data);</span><br><span class="line">			la = la-&gt;next;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">			lb = lb-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	while(la!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, la-&gt;data);</span><br><span class="line">		la = la-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	while(lb!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">		lb = lb-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>cmd隐藏会话</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 使用tmux命令，系统后台不挂断地运行命令，退出终端不会影响程序的运行。类似于nohup命令</span><br><span class="line">tmux</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;stdbool.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct Inode&#123;</span><br><span class="line">	int data;</span><br><span class="line">	struct Inode *next;</span><br><span class="line">&#125;Inode, *lklist;</span><br><span class="line"></span><br><span class="line">//不带头结点</span><br><span class="line">bool InitNullList(lklist &amp;L)&#123;</span><br><span class="line">  L=NULL;   //空表，暂时还没有任何结点。防止脏数据。 </span><br><span class="line">  return true; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LinkListAdd(lklist &amp;L,int e)&#123;</span><br><span class="line">	Inode *p=L;	//指针p指向当前扫描到的结点 </span><br><span class="line">	</span><br><span class="line">	Inode *s = (Inode *)malloc(sizeof(Inode));</span><br><span class="line">	s-&gt;data = e;</span><br><span class="line">	s-&gt;next = NULL;</span><br><span class="line">	</span><br><span class="line">	if(p==NULL)&#123;</span><br><span class="line">		L = s;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	while(p-&gt;next!=NULL)&#123;	//循环找到末尾结点 </span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	p-&gt;next=s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//打印输出单链表 </span><br><span class="line">//---------------start------------------- </span><br><span class="line">void LinkListPrint(lklist L)&#123;</span><br><span class="line">	Inode *p=L;	//指针p指向当前扫描到的结点 </span><br><span class="line">	</span><br><span class="line">	if(L==NULL)&#123;</span><br><span class="line">		printf(&quot;NULL\n&quot;);</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">//	while无法输出最后一个结点的值 </span><br><span class="line">	while(p-&gt;next!=NULL)&#123;</span><br><span class="line">		printf(&quot;%d\t&quot;,p-&gt;data);</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">//	此处补充输出最后一个结点的值 </span><br><span class="line">	if(p-&gt;next==NULL)&#123;</span><br><span class="line">		printf(&quot;%d\n&quot;,p-&gt;data);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)&#123;</span><br><span class="line">	while(la!=NULL&amp;&amp;lb!=NULL)&#123;</span><br><span class="line">		if(la-&gt;data &lt; lb-&gt;data)&#123;</span><br><span class="line">			LinkListAdd(lc, la-&gt;data);</span><br><span class="line">			la = la-&gt;next;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">			lb = lb-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	while(la!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, la-&gt;data);</span><br><span class="line">		la = la-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	while(lb!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">		lb = lb-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main()&#123;</span><br><span class="line">	lklist la,lb,lc;</span><br><span class="line">	</span><br><span class="line">	InitNullList(la);</span><br><span class="line">	LinkListAdd(la,1);</span><br><span class="line">	LinkListAdd(la,3);</span><br><span class="line">	LinkListAdd(la,4);</span><br><span class="line">	LinkListAdd(la,6);</span><br><span class="line">	printf(&quot;-----输出la------\n\n&quot;);</span><br><span class="line">	LinkListPrint(la);</span><br><span class="line">	</span><br><span class="line">	InitNullList(lb);</span><br><span class="line">	LinkListAdd(lb,2);</span><br><span class="line">	LinkListAdd(lb,5);</span><br><span class="line">	LinkListAdd(lb,7);</span><br><span class="line">	LinkListAdd(lb,8);</span><br><span class="line">	LinkListAdd(lb,9);</span><br><span class="line">	printf(&quot;-----输出lb------\n\n&quot;);</span><br><span class="line">	LinkListPrint(lb);</span><br><span class="line">	</span><br><span class="line">	InitNullList(lc);</span><br><span class="line">	mergelklist(la,lb,lc);</span><br><span class="line">	printf(&quot;-----输出合并后的lc------\n&quot;);</span><br><span class="line">	LinkListPrint(lc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>pkg换源关键代码</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">deb [<span class="type">arch</span>=<span class="type">all</span>,<span class="type">aarch64</span>] http://mirrors.tuna.tsinghua.edu.cn/termux stable main</span><br><span class="line"></span><br><span class="line">sed <span class="literal">-i</span> <span class="string">&#x27;s@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main@&#x27;</span> <span class="variable">$PREFIX</span>/etc/apt/sources.list</span><br><span class="line">sed <span class="literal">-i</span> <span class="string">&#x27;s@^\(deb.*games stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24 games stable@&#x27;</span> <span class="variable">$PREFIX</span>/etc/apt/sources.list.d/game.list</span><br><span class="line">sed <span class="literal">-i</span> <span class="string">&#x27;s@^\(deb.*science stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24 science stable@&#x27;</span> <span class="variable">$PREFIX</span>/etc/apt/sources.list.d/science.list</span><br><span class="line">apt update &amp;&amp; apt upgrade</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><p><img src="/p/16c6/Snipaste_2021-08-15_16-30-46.png" alt="Snipaste_2021-08-15_16-30-46"></p>
+<p>Vim不能右键粘贴</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> <span class="built_in">pwd</span></span><br><span class="line">/<span class="keyword">data</span>/<span class="keyword">data</span>/com.termux/files/home</span><br><span class="line"></span><br><span class="line">vim .vimrc</span><br><span class="line"><span class="built_in">set</span> mouse=<span class="built_in">r</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>搭建成功，访问地址：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo server <span class="comment"># 启动本地服务器，可以在localhost:4000查看网站修改效果</span></span><br><span class="line"></span><br><span class="line">http://<span class="number">192.168</span>.<span class="number">31.67</span>:<span class="number">4000</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>魅族手机息屏时间最长30分钟，为了防止息屏，用auto.js每10分钟唤醒一次。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">auto();</span><br><span class="line">while(1)&#123;</span><br><span class="line">    device.wakeUp();</span><br><span class="line">    // 10分钟一次，防止息屏</span><br><span class="line">    sleep(600000); </span><br><span class="line">    toast(&quot;魅族不息屏&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>参考：<br>Termux的安装；ssh连接：<a href="https://blog.csdn.net/weixin_42599499/article/details/111185609">https://blog.csdn.net/weixin_42599499/article/details/111185609</a><br>F-Droid文件：<a href="https://cuishuohao.lanzoui.com/iVhKzsh270j">https://cuishuohao.lanzoui.com/iVhKzsh270j</a><br>李志豪的个人博客：<a href="https://lruihao.cn/">https://lruihao.cn/</a><br>在Android上搭建hexo博客：<a href="https://blog.csdn.net/qq_39520417/article/details/81941075">https://blog.csdn.net/qq_39520417/article/details/81941075</a><br>自动更换Termux的源（有bug）：<a href="https://blog.csdn.net/weixin_43372529/article/details/103317005">https://blog.csdn.net/weixin_43372529/article/details/103317005</a><br>Termux-镜像源（结合上一个参考）：<a href="https://www.jianshu.com/p/27019fc864cb">https://www.jianshu.com/p/27019fc864cb</a><br>vim右键不能复制粘贴：<a href="https://www.cnblogs.com/xpylovely/p/11137803.html">https://www.cnblogs.com/xpylovely/p/11137803.html</a><br>Termux 高级终端安装使用配置教程（tmux）：<a href="https://www.cnblogs.com/cutesnow/p/11430833.html">https://www.cnblogs.com/cutesnow/p/11430833.html</a></p>
+<h1 id="手机端外网访问"><a href="#手机端外网访问" class="headerlink" title="手机端外网访问"></a>手机端外网访问</h1><p>root用户切换（似乎没有用到）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> termux切换root用户：</span></span><br><span class="line">su</span><br><span class="line"></span><br><span class="line">M5Note:/data/data/com.termux/files/home #</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> termux切换普通用户：</span></span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+
+
+<p>手机安装qpython3（不知道有没有用到）<br>下载地址：<a href="https://github.com/qpython-android/qpython3/releases">https://github.com/qpython-android/qpython3/releases</a></p>
+<p>termux内网穿透</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">进入Python客户端所在的目录</span></span><br><span class="line">cd /storage/emulated/0/Download</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">执行脚本</span></span><br><span class="line">python sunny.py</span><br></pre></td></tr></table></figure>
+
+<p>外网访问地址：<a href="http://tsuish.free.idcfengye.com/">http://tsuish.free.idcfengye.com（免费版，很不稳定）</a></p>
+<p>参考：<br>ngrok内网穿透：<a href="http://ngrok.cc/user.html">http://ngrok.cc/user.html</a><br>Ngrok的Android版本使用教程：<a href="https://www.ngrok.cc/_book/start/ngrok_android.html">https://www.ngrok.cc/_book/start/ngrok_android.html</a><br>sunny.py文件：<a href="https://www.ngrok.cc/sunny/python-ngrok.zip?v=2.1">https://www.ngrok.cc/sunny/python-ngrok.zip?v=2.1</a><br>魅族手机root教程：<a href="https://jingyan.baidu.com/article/f96699bbe53182894e3c1be8.html">https://jingyan.baidu.com/article/f96699bbe53182894e3c1be8.html</a><br>TerMux配置Root用户： <a href="https://blog.csdn.net/LYKymy/article/details/88911712">https://blog.csdn.net/LYKymy/article/details/88911712</a><br>Termux 高级终端安装使用配置教程：<a href="https://www.sqlsec.com/2018/05/termux.html">https://www.sqlsec.com/2018/05/termux.html</a></p>
 ]]></content>
       <categories>
-        <category>数据结构与程序设计</category>
+        <category>工具</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Auto.JS</title>
+    <url>/p/2ae0/</url>
+    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Auto.JS简介与教程<br><a href="https://www.jianshu.com/p/4602db0618df">https://www.jianshu.com/p/4602db0618df</a></p>
+<p>B站教程<br><a href="https://space.bilibili.com/21486893/video">https://space.bilibili.com/21486893/video</a></p>
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><p>手机安装：<br>Auto.js 4.1.0：<a href="https://cuishuohao.lanzous.com/iFj24n9g8ab">https://cuishuohao.lanzous.com/iFj24n9g8ab</a><br>Auto.js打包插件：<a href="https://cuishuohao.lanzous.com/iugZ5n9g83e">https://cuishuohao.lanzous.com/iugZ5n9g83e</a><br>Auto.js Pro（仅备用）：<a href="https://cuishuohao.lanzous.com/iXd62n9g8ta">https://cuishuohao.lanzous.com/iXd62n9g8ta</a><br>电脑vscode插件：<br><a href="https://github.com/hyb1996/Auto.js-VSCode-Extension">https://github.com/hyb1996/Auto.js-VSCode-Extension</a></p>
+<p>打开服务：        Ctrl+Shift+P：Auto.js: StartServer<br>保存Js到手机：  Ctrl+Shift+P：Auto.js: Save On Device<br>在手机上运行：  F5</p>
+<h1 id="手机需要权限"><a href="#手机需要权限" class="headerlink" title="手机需要权限"></a>手机需要权限</h1><p>进入开发者模式（小米note3）:我的设备–全部参数–MIUI版本，连续点击<br>​</p>
+<p>无障碍服务<br>悬浮窗<br>​</p>
+<p>安装Auto.JS APK：在手机上安装Auto.js_V4.1.1_Alpha2<br>注：App会自动引导开启“无障碍服务”。以小米为例，按程序指示，在程序跳转到的页面点击“更多已下载的服务”-&gt;“Auto.js”-&gt;开启服务</p>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/90065914">https://zhuanlan.zhihu.com/p/90065914</a></p>
+<p><strong>小米（以红米note9为例）</strong><br>无障碍服务：<br>设置–更多设置–无障碍–已下载的服务–Auto.js–开启服务<br>悬浮窗：<br>设置–应用设置–授权管理–应用权限管理–Auto.js–显示悬浮窗–始终允许</p>
+<p><strong>魅族（以魅蓝note5为例）</strong><br>无障碍服务：<br>设置–辅助功能–无障碍–服务–Auto.js–开启<br>悬浮窗：<br>设置–应用管理–应用权限–Auto.js–悬浮窗–开启</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>参考：<br><a href="https://www.jb51.net/article/186148.htm">https://www.jb51.net/article/186148.htm</a></p>
+<p>官方文档：<br><a href="https://hyb1996.github.io/AutoJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0">https://hyb1996.github.io/AutoJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0</a></p>
+<p>swipe滑动文档：<br><a href="https://hyb1996.github.io/AutoJs-Docs/#/coordinatesBasedAutomation?id=swipex1-y1-x2-y2-duration">https://hyb1996.github.io/AutoJs-Docs/#/coordinatesBasedAutomation?id=swipex1-y1-x2-y2-duration</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
       </categories>
   </entry>
   <entry>
@@ -121,86 +182,25 @@
       </categories>
   </entry>
   <entry>
-    <title>Auto.JS</title>
-    <url>/p/2ae0/</url>
-    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Auto.JS简介与教程<br><a href="https://www.jianshu.com/p/4602db0618df">https://www.jianshu.com/p/4602db0618df</a></p>
-<p>B站教程<br><a href="https://space.bilibili.com/21486893/video">https://space.bilibili.com/21486893/video</a></p>
-<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><p>手机安装：<br>Auto.js 4.1.0：<a href="https://cuishuohao.lanzous.com/iFj24n9g8ab">https://cuishuohao.lanzous.com/iFj24n9g8ab</a><br>Auto.js打包插件：<a href="https://cuishuohao.lanzous.com/iugZ5n9g83e">https://cuishuohao.lanzous.com/iugZ5n9g83e</a><br>Auto.js Pro（仅备用）：<a href="https://cuishuohao.lanzous.com/iXd62n9g8ta">https://cuishuohao.lanzous.com/iXd62n9g8ta</a><br>电脑vscode插件：<br><a href="https://github.com/hyb1996/Auto.js-VSCode-Extension">https://github.com/hyb1996/Auto.js-VSCode-Extension</a></p>
-<p>打开服务：        Ctrl+Shift+P：Auto.js: StartServer<br>保存Js到手机：  Ctrl+Shift+P：Auto.js: Save On Device<br>在手机上运行：  F5</p>
-<h1 id="手机需要权限"><a href="#手机需要权限" class="headerlink" title="手机需要权限"></a>手机需要权限</h1><p>进入开发者模式（小米note3）:我的设备–全部参数–MIUI版本，连续点击<br>​</p>
-<p>无障碍服务<br>悬浮窗<br>​</p>
-<p>安装Auto.JS APK：在手机上安装Auto.js_V4.1.1_Alpha2<br>注：App会自动引导开启“无障碍服务”。以小米为例，按程序指示，在程序跳转到的页面点击“更多已下载的服务”-&gt;“Auto.js”-&gt;开启服务</p>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/90065914">https://zhuanlan.zhihu.com/p/90065914</a></p>
-<p><strong>小米（以红米note9为例）</strong><br>无障碍服务：<br>设置–更多设置–无障碍–已下载的服务–Auto.js–开启服务<br>悬浮窗：<br>设置–应用设置–授权管理–应用权限管理–Auto.js–显示悬浮窗–始终允许</p>
-<p><strong>魅族（以魅蓝note5为例）</strong><br>无障碍服务：<br>设置–辅助功能–无障碍–服务–Auto.js–开启<br>悬浮窗：<br>设置–应用管理–应用权限–Auto.js–悬浮窗–开启</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>参考：<br><a href="https://www.jb51.net/article/186148.htm">https://www.jb51.net/article/186148.htm</a></p>
-<p>官方文档：<br><a href="https://hyb1996.github.io/AutoJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0">https://hyb1996.github.io/AutoJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0</a></p>
-<p>swipe滑动文档：<br><a href="https://hyb1996.github.io/AutoJs-Docs/#/coordinatesBasedAutomation?id=swipex1-y1-x2-y2-duration">https://hyb1996.github.io/AutoJs-Docs/#/coordinatesBasedAutomation?id=swipex1-y1-x2-y2-duration</a></p>
+    <title>有序单链表合并</title>
+    <url>/p/16c6/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/p/16c6/Snipaste_2021-08-15_16-22-01.png" alt="Snipaste_2021-08-15_16-22-01"></p>
+<h1 id="初始代码"><a href="#初始代码" class="headerlink" title="初始代码"></a>初始代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">typedef struct Inode&#123;</span><br><span class="line">	int data;</span><br><span class="line">	struct Inode *next;</span><br><span class="line">&#125;Inode, *lklist;</span><br><span class="line"></span><br><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="我的笨方法"><a href="#我的笨方法" class="headerlink" title="我的笨方法"></a>我的笨方法</h1><h2 id="解题关键代码"><a href="#解题关键代码" class="headerlink" title="解题关键代码"></a>解题关键代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)&#123;</span><br><span class="line">	while(la!=NULL&amp;&amp;lb!=NULL)&#123;</span><br><span class="line">		if(la-&gt;data &lt; lb-&gt;data)&#123;</span><br><span class="line">			LinkListAdd(lc, la-&gt;data);</span><br><span class="line">			la = la-&gt;next;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">			lb = lb-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	while(la!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, la-&gt;data);</span><br><span class="line">		la = la-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	while(lb!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">		lb = lb-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;stdbool.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct Inode&#123;</span><br><span class="line">	int data;</span><br><span class="line">	struct Inode *next;</span><br><span class="line">&#125;Inode, *lklist;</span><br><span class="line"></span><br><span class="line">//不带头结点</span><br><span class="line">bool InitNullList(lklist &amp;L)&#123;</span><br><span class="line">  L=NULL;   //空表，暂时还没有任何结点。防止脏数据。 </span><br><span class="line">  return true; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LinkListAdd(lklist &amp;L,int e)&#123;</span><br><span class="line">	Inode *p=L;	//指针p指向当前扫描到的结点 </span><br><span class="line">	</span><br><span class="line">	Inode *s = (Inode *)malloc(sizeof(Inode));</span><br><span class="line">	s-&gt;data = e;</span><br><span class="line">	s-&gt;next = NULL;</span><br><span class="line">	</span><br><span class="line">	if(p==NULL)&#123;</span><br><span class="line">		L = s;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	while(p-&gt;next!=NULL)&#123;	//循环找到末尾结点 </span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	p-&gt;next=s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//打印输出单链表 </span><br><span class="line">//---------------start------------------- </span><br><span class="line">void LinkListPrint(lklist L)&#123;</span><br><span class="line">	Inode *p=L;	//指针p指向当前扫描到的结点 </span><br><span class="line">	</span><br><span class="line">	if(L==NULL)&#123;</span><br><span class="line">		printf(&quot;NULL\n&quot;);</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">//	while无法输出最后一个结点的值 </span><br><span class="line">	while(p-&gt;next!=NULL)&#123;</span><br><span class="line">		printf(&quot;%d\t&quot;,p-&gt;data);</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">//	此处补充输出最后一个结点的值 </span><br><span class="line">	if(p-&gt;next==NULL)&#123;</span><br><span class="line">		printf(&quot;%d\n&quot;,p-&gt;data);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)&#123;</span><br><span class="line">	while(la!=NULL&amp;&amp;lb!=NULL)&#123;</span><br><span class="line">		if(la-&gt;data &lt; lb-&gt;data)&#123;</span><br><span class="line">			LinkListAdd(lc, la-&gt;data);</span><br><span class="line">			la = la-&gt;next;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">			lb = lb-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	while(la!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, la-&gt;data);</span><br><span class="line">		la = la-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	while(lb!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">		lb = lb-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main()&#123;</span><br><span class="line">	lklist la,lb,lc;</span><br><span class="line">	</span><br><span class="line">	InitNullList(la);</span><br><span class="line">	LinkListAdd(la,1);</span><br><span class="line">	LinkListAdd(la,3);</span><br><span class="line">	LinkListAdd(la,4);</span><br><span class="line">	LinkListAdd(la,6);</span><br><span class="line">	printf(&quot;-----输出la------\n\n&quot;);</span><br><span class="line">	LinkListPrint(la);</span><br><span class="line">	</span><br><span class="line">	InitNullList(lb);</span><br><span class="line">	LinkListAdd(lb,2);</span><br><span class="line">	LinkListAdd(lb,5);</span><br><span class="line">	LinkListAdd(lb,7);</span><br><span class="line">	LinkListAdd(lb,8);</span><br><span class="line">	LinkListAdd(lb,9);</span><br><span class="line">	printf(&quot;-----输出lb------\n\n&quot;);</span><br><span class="line">	LinkListPrint(lb);</span><br><span class="line">	</span><br><span class="line">	InitNullList(lc);</span><br><span class="line">	mergelklist(la,lb,lc);</span><br><span class="line">	printf(&quot;-----输出合并后的lc------\n&quot;);</span><br><span class="line">	LinkListPrint(lc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><p><img src="/p/16c6/Snipaste_2021-08-15_16-30-46.png" alt="Snipaste_2021-08-15_16-30-46"></p>
 ]]></content>
       <categories>
-        <category>工具</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Android手机搭建hexo博客</title>
-    <url>/p/c8b9/</url>
-    <content><![CDATA[<p>2021年8月11日</p>
-<h1 id="电脑搭建"><a href="#电脑搭建" class="headerlink" title="电脑搭建"></a>电脑搭建</h1><p>今天逛QQ空间，看到丁魏武发了一个自己的博客地址。我向他学习，也试着搭建一个博客。<br>​</p>
-<p>参考：<br>丁魏武博客地址：<a href="http://weiwuding.top/">http://weiwuding.top</a><br>hexo史上最全搭建教程：<a href="https://blog.csdn.net/sinat_37781304/article/details/82729029">https://blog.csdn.net/sinat_37781304/article/details/82729029</a><br>npm更换镜像源操作：<a href="https://blog.csdn.net/qq_38253549/article/details/114081724">https://blog.csdn.net/qq_38253549/article/details/114081724</a></p>
-<p>在Windows电脑上搭建成功，但是无法外网访问。<br>​</p>
-<h1 id="手机搭建"><a href="#手机搭建" class="headerlink" title="手机搭建"></a>手机搭建</h1><p>于是想着用手机搭建多好啊。拿出魅蓝note5，开始造。<br>​</p>
-<p>先在手机安装F-Droid，再在F-Droid上下载安装Termux。<br>​</p>
-<p>手机上termux不好操作，于是用cmd通过ssh连接。<br>手机termux启动sshd服务：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">sshd</span><br><span class="line">nmap <span class="number">192.168</span>.<span class="number">31.67</span></span><br></pre></td></tr></table></figure>
-
-
-<p>电脑在cmd用ssh连：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ssh  u0_a103@<span class="number">192.168</span>.<span class="number">31.67</span> <span class="literal">-p</span> <span class="number">8022</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ssh的密码：root</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>cmd隐藏会话</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 使用tmux命令，系统后台不挂断地运行命令，退出终端不会影响程序的运行。类似于nohup命令</span><br><span class="line">tmux</span><br></pre></td></tr></table></figure>
-
-
-
-
-<p>pkg换源关键代码</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">deb [<span class="type">arch</span>=<span class="type">all</span>,<span class="type">aarch64</span>] http://mirrors.tuna.tsinghua.edu.cn/termux stable main</span><br><span class="line"></span><br><span class="line">sed <span class="literal">-i</span> <span class="string">&#x27;s@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main@&#x27;</span> <span class="variable">$PREFIX</span>/etc/apt/sources.list</span><br><span class="line">sed <span class="literal">-i</span> <span class="string">&#x27;s@^\(deb.*games stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24 games stable@&#x27;</span> <span class="variable">$PREFIX</span>/etc/apt/sources.list.d/game.list</span><br><span class="line">sed <span class="literal">-i</span> <span class="string">&#x27;s@^\(deb.*science stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24 science stable@&#x27;</span> <span class="variable">$PREFIX</span>/etc/apt/sources.list.d/science.list</span><br><span class="line">apt update &amp;&amp; apt upgrade</span><br></pre></td></tr></table></figure>
-
-
-
-<p>Vim不能右键粘贴</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> <span class="built_in">pwd</span></span><br><span class="line">/<span class="keyword">data</span>/<span class="keyword">data</span>/com.termux/files/home</span><br><span class="line"></span><br><span class="line">vim .vimrc</span><br><span class="line"><span class="built_in">set</span> mouse=<span class="built_in">r</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>搭建成功，访问地址：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo server <span class="comment"># 启动本地服务器，可以在localhost:4000查看网站修改效果</span></span><br><span class="line"></span><br><span class="line">http://<span class="number">192.168</span>.<span class="number">31.67</span>:<span class="number">4000</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<p>魅族手机息屏时间最长30分钟，为了防止息屏，用auto.js每10分钟唤醒一次。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">auto();</span><br><span class="line">while(1)&#123;</span><br><span class="line">    device.wakeUp();</span><br><span class="line">    // 10分钟一次，防止息屏</span><br><span class="line">    sleep(600000); </span><br><span class="line">    toast(&quot;魅族不息屏&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>参考：<br>Termux的安装；ssh连接：<a href="https://blog.csdn.net/weixin_42599499/article/details/111185609">https://blog.csdn.net/weixin_42599499/article/details/111185609</a><br>F-Droid文件：<a href="https://cuishuohao.lanzoui.com/iVhKzsh270j">https://cuishuohao.lanzoui.com/iVhKzsh270j</a><br>李志豪的个人博客：<a href="https://lruihao.cn/">https://lruihao.cn/</a><br>在Android上搭建hexo博客：<a href="https://blog.csdn.net/qq_39520417/article/details/81941075">https://blog.csdn.net/qq_39520417/article/details/81941075</a><br>自动更换Termux的源（有bug）：<a href="https://blog.csdn.net/weixin_43372529/article/details/103317005">https://blog.csdn.net/weixin_43372529/article/details/103317005</a><br>Termux-镜像源（结合上一个参考）：<a href="https://www.jianshu.com/p/27019fc864cb">https://www.jianshu.com/p/27019fc864cb</a><br>vim右键不能复制粘贴：<a href="https://www.cnblogs.com/xpylovely/p/11137803.html">https://www.cnblogs.com/xpylovely/p/11137803.html</a><br>Termux 高级终端安装使用配置教程（tmux）：<a href="https://www.cnblogs.com/cutesnow/p/11430833.html">https://www.cnblogs.com/cutesnow/p/11430833.html</a></p>
-<h1 id="手机端外网访问"><a href="#手机端外网访问" class="headerlink" title="手机端外网访问"></a>手机端外网访问</h1><p>root用户切换（似乎没有用到）</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> termux切换root用户：</span></span><br><span class="line">su</span><br><span class="line"></span><br><span class="line">M5Note:/data/data/com.termux/files/home #</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> termux切换普通用户：</span></span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
-
-
-
-<p>手机安装qpython3（不知道有没有用到）<br>下载地址：<a href="https://github.com/qpython-android/qpython3/releases">https://github.com/qpython-android/qpython3/releases</a></p>
-<p>termux内网穿透</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">进入Python客户端所在的目录</span></span><br><span class="line">cd /storage/emulated/0/Download</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">执行脚本</span></span><br><span class="line">python sunny.py</span><br></pre></td></tr></table></figure>
-
-<p>外网访问地址：<a href="http://tsuish.free.idcfengye.com/">http://tsuish.free.idcfengye.com（免费版，很不稳定）</a></p>
-<p>参考：<br>ngrok内网穿透：<a href="http://ngrok.cc/user.html">http://ngrok.cc/user.html</a><br>Ngrok的Android版本使用教程：<a href="https://www.ngrok.cc/_book/start/ngrok_android.html">https://www.ngrok.cc/_book/start/ngrok_android.html</a><br>sunny.py文件：<a href="https://www.ngrok.cc/sunny/python-ngrok.zip?v=2.1">https://www.ngrok.cc/sunny/python-ngrok.zip?v=2.1</a><br>魅族手机root教程：<a href="https://jingyan.baidu.com/article/f96699bbe53182894e3c1be8.html">https://jingyan.baidu.com/article/f96699bbe53182894e3c1be8.html</a><br>TerMux配置Root用户： <a href="https://blog.csdn.net/LYKymy/article/details/88911712">https://blog.csdn.net/LYKymy/article/details/88911712</a><br>Termux 高级终端安装使用配置教程：<a href="https://www.sqlsec.com/2018/05/termux.html">https://www.sqlsec.com/2018/05/termux.html</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
+        <category>数据结构与程序设计</category>
       </categories>
   </entry>
 </search>
