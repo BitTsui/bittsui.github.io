@@ -30,10 +30,9 @@
 <p>同时在本地对Typora做适配，方法如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 - 图像 - 设置图片根目录</span><br><span class="line">设置为当前文档同名目录</span><br><span class="line">ok</span><br></pre></td></tr></table></figure>
 
-<img src="/p/784a/Snipaste_2021-08-14_17-24-07.png" alt="Snipaste_2021-08-14_17-24-07" style="zoom:80%;">
 
 
-
+<p><img src="/p/784a/Snipaste_2021-08-14_17-24-07.png" alt="Snipaste_2021-08-14_17-24-07"></p>
 <p>给文章和图片加一个边框阴影效果，效果很好</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">打开next\source\css\_common\components\post\post-body.styl</span><br><span class="line"></span><br><span class="line"># 给文章加一个边框阴影效果</span><br><span class="line">.post-body &#123;</span><br><span class="line">  padding: 25px;</span><br><span class="line">  -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">  -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 给图片加一个边框阴影效果</span><br><span class="line">.post-body &#123;</span><br><span class="line">  iframe, img, video, embed &#123;</span><br><span class="line">    -webkit-box-shadow: 0 0 50px rgba(202, 203, 203, .9);</span><br><span class="line">    -moz-box-shadow: 0 0 50px rgba(202, 203, 204, .9);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -41,10 +40,6 @@
 <h2 id="永久链接"><a href="#永久链接" class="headerlink" title="永久链接"></a>永久链接</h2><p>参考：<a href="https://blog.csdn.net/Mculover666/article/details/103137719/">优化文章永久链接为数字编号</a></p>
 <p>由于我的博客文章较少，所以采用尽量使文章链接更短的方式，如下</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">permalink: p/:abbrlink/</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc16 #support crc16(default) and crc32</span><br><span class="line">  rep: hex   #support dec(default) and hex</span><br></pre></td></tr></table></figure>
-
-
-
-
 
 
 
