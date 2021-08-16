@@ -1,48 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>有序单链表合并</title>
-    <url>/p/16c6/</url>
-    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/p/16c6/Snipaste_2021-08-15_16-22-01.png" alt="Snipaste_2021-08-15_16-22-01"></p>
-<h1 id="初始代码"><a href="#初始代码" class="headerlink" title="初始代码"></a>初始代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">typedef struct Inode&#123;</span><br><span class="line">	int data;</span><br><span class="line">	struct Inode *next;</span><br><span class="line">&#125;Inode, *lklist;</span><br><span class="line"></span><br><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="我的笨方法"><a href="#我的笨方法" class="headerlink" title="我的笨方法"></a>我的笨方法</h1><h2 id="解题关键代码"><a href="#解题关键代码" class="headerlink" title="解题关键代码"></a>解题关键代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)&#123;</span><br><span class="line">	while(la!=NULL&amp;&amp;lb!=NULL)&#123;</span><br><span class="line">		if(la-&gt;data &lt; lb-&gt;data)&#123;</span><br><span class="line">			LinkListAdd(lc, la-&gt;data);</span><br><span class="line">			la = la-&gt;next;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">			lb = lb-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	while(la!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, la-&gt;data);</span><br><span class="line">		la = la-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	while(lb!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">		lb = lb-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;stdbool.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct Inode&#123;</span><br><span class="line">	int data;</span><br><span class="line">	struct Inode *next;</span><br><span class="line">&#125;Inode, *lklist;</span><br><span class="line"></span><br><span class="line">//不带头结点</span><br><span class="line">bool InitNullList(lklist &amp;L)&#123;</span><br><span class="line">  L=NULL;   //空表，暂时还没有任何结点。防止脏数据。 </span><br><span class="line">  return true; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LinkListAdd(lklist &amp;L,int e)&#123;</span><br><span class="line">	Inode *p=L;	//指针p指向当前扫描到的结点 </span><br><span class="line">	</span><br><span class="line">	Inode *s = (Inode *)malloc(sizeof(Inode));</span><br><span class="line">	s-&gt;data = e;</span><br><span class="line">	s-&gt;next = NULL;</span><br><span class="line">	</span><br><span class="line">	if(p==NULL)&#123;</span><br><span class="line">		L = s;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	while(p-&gt;next!=NULL)&#123;	//循环找到末尾结点 </span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	p-&gt;next=s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//打印输出单链表 </span><br><span class="line">//---------------start------------------- </span><br><span class="line">void LinkListPrint(lklist L)&#123;</span><br><span class="line">	Inode *p=L;	//指针p指向当前扫描到的结点 </span><br><span class="line">	</span><br><span class="line">	if(L==NULL)&#123;</span><br><span class="line">		printf(&quot;NULL\n&quot;);</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">//	while无法输出最后一个结点的值 </span><br><span class="line">	while(p-&gt;next!=NULL)&#123;</span><br><span class="line">		printf(&quot;%d\t&quot;,p-&gt;data);</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">//	此处补充输出最后一个结点的值 </span><br><span class="line">	if(p-&gt;next==NULL)&#123;</span><br><span class="line">		printf(&quot;%d\n&quot;,p-&gt;data);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mergelklist(lklist &amp;la,lklist &amp;lb,lklist &amp;lc)&#123;</span><br><span class="line">	while(la!=NULL&amp;&amp;lb!=NULL)&#123;</span><br><span class="line">		if(la-&gt;data &lt; lb-&gt;data)&#123;</span><br><span class="line">			LinkListAdd(lc, la-&gt;data);</span><br><span class="line">			la = la-&gt;next;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">			lb = lb-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	while(la!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, la-&gt;data);</span><br><span class="line">		la = la-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	while(lb!=NULL)&#123;</span><br><span class="line">		LinkListAdd(lc, lb-&gt;data);</span><br><span class="line">		lb = lb-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main()&#123;</span><br><span class="line">	lklist la,lb,lc;</span><br><span class="line">	</span><br><span class="line">	InitNullList(la);</span><br><span class="line">	LinkListAdd(la,1);</span><br><span class="line">	LinkListAdd(la,3);</span><br><span class="line">	LinkListAdd(la,4);</span><br><span class="line">	LinkListAdd(la,6);</span><br><span class="line">	printf(&quot;-----输出la------\n\n&quot;);</span><br><span class="line">	LinkListPrint(la);</span><br><span class="line">	</span><br><span class="line">	InitNullList(lb);</span><br><span class="line">	LinkListAdd(lb,2);</span><br><span class="line">	LinkListAdd(lb,5);</span><br><span class="line">	LinkListAdd(lb,7);</span><br><span class="line">	LinkListAdd(lb,8);</span><br><span class="line">	LinkListAdd(lb,9);</span><br><span class="line">	printf(&quot;-----输出lb------\n\n&quot;);</span><br><span class="line">	LinkListPrint(lb);</span><br><span class="line">	</span><br><span class="line">	InitNullList(lc);</span><br><span class="line">	mergelklist(la,lb,lc);</span><br><span class="line">	printf(&quot;-----输出合并后的lc------\n&quot;);</span><br><span class="line">	LinkListPrint(lc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><p><img src="/p/16c6/Snipaste_2021-08-15_16-30-46.png" alt="Snipaste_2021-08-15_16-30-46"></p>
-]]></content>
-      <categories>
-        <category>数据结构与程序设计</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Dev-Cpp的使用</title>
-    <url>/p/df03/</url>
-    <content><![CDATA[<h1 id="取消自动补全"><a href="#取消自动补全" class="headerlink" title="取消自动补全"></a>取消自动补全</h1><p>工具-&gt;编辑器选项-&gt;“代码补全”页：</p>
-<p>​    1、去掉“允许代码补全”勾选项（这个是代码的提示，可以不用去掉）</p>
-<p>​    2、去掉“启动符合匹配”</p>
-<p>-&gt;“确定”按钮</p>
-<h1 id="新建一个项目"><a href="#新建一个项目" class="headerlink" title="新建一个项目"></a>新建一个项目</h1><ul>
-<li>文件-&gt;新建-&gt;项目</li>
-<li>选择Empty Project</li>
-<li>命名项目名称</li>
-<li>确认</li>
-</ul>
-<p>参考：<br>c语言自己写一个.h的头文件：<a href="https://blog.csdn.net/Wolf_xujie/article/details/102166384">https://blog.csdn.net/Wolf_xujie/article/details/102166384</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-        <category>数据结构与程序设计</category>
-      </categories>
-  </entry>
-  <entry>
     <title>hexo+next主题优化</title>
     <url>/p/784a/</url>
     <content><![CDATA[<h1 id="为什么选择next主题"><a href="#为什么选择next主题" class="headerlink" title="为什么选择next主题"></a>为什么选择next主题</h1><p>默认的主题是landscope，没有访问量和站内搜索的功能。</p>
@@ -62,6 +20,13 @@
 
 
 <h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p>参考：<a href="https://www.jianshu.com/p/f72aaad7b852">https://www.jianshu.com/p/f72aaad7b852</a></p>
+<p>关键代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#x27;use strict&#x27;;</span><br><span class="line">var cheerio = require(&#x27;cheerio&#x27;);</span><br><span class="line"></span><br><span class="line">// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string</span><br><span class="line">function getPosition(str, m, i) &#123;</span><br><span class="line">  return str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var version = String(hexo.version).split(&#x27;.&#x27;);</span><br><span class="line">hexo.extend.filter.register(&#x27;after_post_render&#x27;, function(data)&#123;</span><br><span class="line">  var config = hexo.config;</span><br><span class="line">  if(config.post_asset_folder)&#123;</span><br><span class="line">        var link = data.permalink;</span><br><span class="line">    if(version.length &gt; 0 &amp;&amp; Number(version[0]) == 3)</span><br><span class="line">       var beginPos = getPosition(link, &#x27;/&#x27;, 1) + 1;</span><br><span class="line">    else</span><br><span class="line">       var beginPos = getPosition(link, &#x27;/&#x27;, 3) + 1;</span><br><span class="line">    // In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;.../about/index.html&quot;.</span><br><span class="line">    var endPos = link.lastIndexOf(&#x27;/&#x27;) + 1;</span><br><span class="line">    link = link.substring(beginPos, endPos);</span><br><span class="line"></span><br><span class="line">    var toprocess = [&#x27;excerpt&#x27;, &#x27;more&#x27;, &#x27;content&#x27;];</span><br><span class="line">    for(var i = 0; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">      var key = toprocess[i];</span><br><span class="line"> </span><br><span class="line">      var $ = cheerio.load(data[key], &#123;</span><br><span class="line">        ignoreWhitespace: false,</span><br><span class="line">        xmlMode: false,</span><br><span class="line">        lowerCaseTags: false,</span><br><span class="line">        decodeEntities: false</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(&#x27;img&#x27;).each(function()&#123;</span><br><span class="line">        if ($(this).attr(&#x27;src&#x27;))&#123;</span><br><span class="line">            // For windows style path, we replace &#x27;\&#x27; to &#x27;/&#x27;.</span><br><span class="line">            var src = $(this).attr(&#x27;src&#x27;).replace(&#x27;\\&#x27;, &#x27;/&#x27;);</span><br><span class="line">            if(!/http[s]*.*|\/\/.*/.test(src) &amp;&amp;</span><br><span class="line">               !/^\s*\//.test(src)) &#123;</span><br><span class="line">              // For &quot;about&quot; page, the first part of &quot;src&quot; can&#x27;t be removed.</span><br><span class="line">              // In addition, to support multi-level local directory.</span><br><span class="line">              var linkArray = link.split(&#x27;/&#x27;).filter(function(elem)&#123;</span><br><span class="line">                return elem != &#x27;&#x27;;</span><br><span class="line">              &#125;);</span><br><span class="line">              var srcArray = src.split(&#x27;/&#x27;).filter(function(elem)&#123;</span><br><span class="line">                return elem != &#x27;&#x27; &amp;&amp; elem != &#x27;.&#x27;;</span><br><span class="line">              &#125;);</span><br><span class="line">              if(srcArray.length &gt; 1)</span><br><span class="line">                srcArray.shift();</span><br><span class="line">              src = srcArray.join(&#x27;/&#x27;);</span><br><span class="line">              $(this).attr(&#x27;src&#x27;, config.root + link + src);</span><br><span class="line">              console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);</span><br><span class="line">            console.info&amp;&amp;console.info($(this));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      data[key] = $.html();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <p>同时在本地对Typora做适配，方法如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 - 图像 - 设置图片根目录</span><br><span class="line">设置为当前文档同名目录</span><br><span class="line">ok</span><br></pre></td></tr></table></figure>
 
@@ -73,12 +38,22 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">打开next\source\css\_common\components\post\post-body.styl</span><br><span class="line"></span><br><span class="line"># 给文章加一个边框阴影效果</span><br><span class="line">.post-body &#123;</span><br><span class="line">  padding: 25px;</span><br><span class="line">  -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">  -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 给图片加一个边框阴影效果</span><br><span class="line">.post-body &#123;</span><br><span class="line">  iframe, img, video, embed &#123;</span><br><span class="line">    -webkit-box-shadow: 0 0 50px rgba(202, 203, 203, .9);</span><br><span class="line">    -moz-box-shadow: 0 0 50px rgba(202, 203, 204, .9);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>参考：<a href="https://www.himmy.cn/2019/07/06/hexo%E5%8D%9A%E5%AE%A2next%E4%B8%BB%E9%A2%98%E4%B8%8B%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C/">Hexo博客NexT主题下添加文章边框阴影效果</a></p>
-<h2 id="永久链接"><a href="#永久链接" class="headerlink" title="永久链接"></a>永久链接</h2><p>由于我的博客文章较少，所以采用尽量使文章链接更短的方式，如下</p>
+<h2 id="永久链接"><a href="#永久链接" class="headerlink" title="永久链接"></a>永久链接</h2><p>参考：<a href="https://blog.csdn.net/Mculover666/article/details/103137719/">优化文章永久链接为数字编号</a></p>
+<p>由于我的博客文章较少，所以采用尽量使文章链接更短的方式，如下</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">permalink: p/:abbrlink/</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc16 #support crc16(default) and crc32</span><br><span class="line">  rep: hex   #support dec(default) and hex</span><br></pre></td></tr></table></figure>
 
 
 
-<p>参考：<a href="https://blog.csdn.net/Mculover666/article/details/103137719/">优化文章永久链接为数字编号</a></p>
+
+
+
+
+<h2 id="字数统计"><a href="#字数统计" class="headerlink" title="字数统计"></a>字数统计</h2><p>参考：<a href="https://blog.csdn.net/TomAndersen/article/details/104691118">Hexo之NexT主题中设置symbols_count_time统计单词</a></p>
+<p>其中，我的主题配置设置如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true     # 是否另起一行（true的话不和发表时间等同一行）</span><br><span class="line">  item_text_post: true     # 首页文章统计数量前是否显示文字描述（本文字数、阅读时长）</span><br><span class="line">  item_text_total: true     # 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）</span><br><span class="line">  awl: 4                   # Average Word Length</span><br><span class="line">  wpm: 275                 # Words Per Minute（每分钟阅读词数）</span><br><span class="line">  suffix: mins.</span><br></pre></td></tr></table></figure>
+
+
+
 <hr>
 <p>next主题优化 - 参考：<br>​</p>
 <p>官方文档 - next开始使用：<a href="https://theme-next.iissnan.com/getting-started.html">https://theme-next.iissnan.com/getting-started.html</a><br>官方文档 - next主题配置：<a href="https://theme-next.iissnan.com/theme-settings.html">https://theme-next.iissnan.com/theme-settings.html</a><br>​</p>
