@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/dragon-128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/dragon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/dragon-16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tsuish.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<meta name="description" content="简介：浙大版C语言程序设计（第3版）-函数题-练习5，共10个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浙大版C语言程序设计（第3版）-函数题-练习5">
+<meta property="og:url" content="https://tsuish.github.io/p/6698/index.html">
+<meta property="og:site_name" content="cuishuohao">
+<meta property="og:description" content="简介：浙大版C语言程序设计（第3版）-函数题-练习5，共10个">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tsuish.github.io/p/6698/image-20221023170502553.png">
+<meta property="og:image" content="https://tsuish.github.io/p/6698/image-20221023170559711.png">
+<meta property="og:image" content="https://tsuish.github.io/p/6698/image-20221023170244871.png">
+<meta property="og:image" content="https://tsuish.github.io/p/6698/image-20221023170803823.png">
+<meta property="og:image" content="https://tsuish.github.io/p/6698/image-20221023171116879.png">
+<meta property="og:image" content="https://tsuish.github.io/p/6698/image-20221023171447123.png">
+<meta property="og:image" content="https://tsuish.github.io/p/6698/Snipaste_2021-08-22_12-34-38.png">
+<meta property="article:published_time" content="2021-08-15T12:40:10.000Z">
+<meta property="article:modified_time" content="2022-10-23T10:15:53.921Z">
+<meta property="article:author" content="cuishuohao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tsuish.github.io/p/6698/image-20221023170502553.png">
+
+
+<link rel="canonical" href="https://tsuish.github.io/p/6698/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://tsuish.github.io/p/6698/","path":"p/6698/","title":"浙大版C语言程序设计（第3版）-函数题-练习5"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>浙大版C语言程序设计（第3版）-函数题-练习5 | cuishuohao</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/tsuish/clicklove.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">cuishuohao</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%83%E4%B9%A05-1-%E6%B1%82m%E5%88%B0n%E4%B9%8B%E5%92%8C"><span class="nav-number">2.</span> <span class="nav-text">练习5-1 求m到n之和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">2.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%A0%B7%E4%BE%8B"><span class="nav-number">2.2.</span> <span class="nav-text">程序样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81"><span class="nav-number">2.3.</span> <span class="nav-text">关键代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%83%E4%B9%A05-2-%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%95%B0%E4%B8%AD%E6%9C%80%E5%A4%A7%E8%80%85"><span class="nav-number">3.</span> <span class="nav-text">练习5-2 找两个数中最大者</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-1"><span class="nav-number">3.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">3.2.</span> <span class="nav-text">程序样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81-1"><span class="nav-number">3.3.</span> <span class="nav-text">关键代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%83%E4%B9%A05-3-%E6%95%B0%E5%AD%97%E9%87%91%E5%AD%97%E5%A1%94"><span class="nav-number">4.</span> <span class="nav-text">练习5-3 数字金字塔</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-2"><span class="nav-number">4.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%A0%B7%E4%BE%8B-2"><span class="nav-number">4.2.</span> <span class="nav-text">程序样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81-2"><span class="nav-number">4.3.</span> <span class="nav-text">关键代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%A0%E9%A2%985-1-%E7%AC%A6%E5%8F%B7%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">习题5-1 符号函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-3"><span class="nav-number">5.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%A0%B7%E4%BE%8B-3"><span class="nav-number">5.2.</span> <span class="nav-text">程序样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81-3"><span class="nav-number">5.3.</span> <span class="nav-text">关键代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%A0%E9%A2%985-2-%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E6%B1%82%E5%A5%87%E6%95%B0%E5%92%8C"><span class="nav-number">6.</span> <span class="nav-text">习题5-2 使用函数求奇数和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-4"><span class="nav-number">6.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%A0%B7%E4%BE%8B-4"><span class="nav-number">6.2.</span> <span class="nav-text">程序样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81-4"><span class="nav-number">6.3.</span> <span class="nav-text">关键代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%A0%E9%A2%985-3-%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E4%B8%A4%E7%82%B9%E9%97%B4%E7%9A%84%E8%B7%9D%E7%A6%BB"><span class="nav-number">7.</span> <span class="nav-text">习题5-3 使用函数计算两点间的距离</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-5"><span class="nav-number">7.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%A0%B7%E4%BE%8B-5"><span class="nav-number">7.2.</span> <span class="nav-text">程序样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81-5"><span class="nav-number">7.3.</span> <span class="nav-text">关键代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%A0%E9%A2%985-4-%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E6%B1%82%E7%B4%A0%E6%95%B0%E5%92%8C"><span class="nav-number">8.</span> <span class="nav-text">习题5-4 使用函数求素数和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-6"><span class="nav-number">8.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%A0%B7%E4%BE%8B-6"><span class="nav-number">8.2.</span> <span class="nav-text">程序样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81-6"><span class="nav-number">8.3.</span> <span class="nav-text">关键代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%A0%E9%A2%985-5-%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%BB%9F%E8%AE%A1%E6%8C%87%E5%AE%9A%E6%95%B0%E5%AD%97%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="nav-number">9.</span> <span class="nav-text">习题5-5 使用函数统计指定数字的个数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-7"><span class="nav-number">9.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%A0%B7%E4%BE%8B-7"><span class="nav-number">9.2.</span> <span class="nav-text">程序样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81-7"><span class="nav-number">9.3.</span> <span class="nav-text">关键代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%A0%E9%A2%985-6-%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E8%BE%93%E5%87%BA%E6%B0%B4%E4%BB%99%E8%8A%B1%E6%95%B0"><span class="nav-number">10.</span> <span class="nav-text">习题5-6 使用函数输出水仙花数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-8"><span class="nav-number">10.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%A0%B7%E4%BE%8B-8"><span class="nav-number">10.2.</span> <span class="nav-text">程序样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81-8"><span class="nav-number">10.3.</span> <span class="nav-text">关键代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%A0%E9%A2%985-7-%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E6%B1%82%E4%BD%99%E5%BC%A6%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%91%E4%BC%BC%E5%80%BC"><span class="nav-number">11.</span> <span class="nav-text">习题5-7 使用函数求余弦函数的近似值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-9"><span class="nav-number">11.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%A0%B7%E4%BE%8B-9"><span class="nav-number">11.2.</span> <span class="nav-text">程序样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81-9"><span class="nav-number">11.3.</span> <span class="nav-text">关键代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AA%81%E7%84%B6%E4%B8%8D%E8%83%BD%E5%85%8D%E8%B4%B9%E7%94%A8%E4%BA%86"><span class="nav-number">12.</span> <span class="nav-text">突然不能免费用了</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="cuishuohao"
+      src="/images/tsuish.jpg">
+  <p class="site-author-name" itemprop="name">cuishuohao</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tsuish.github.io/p/6698/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tsuish.jpg">
+      <meta itemprop="name" content="cuishuohao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cuishuohao">
+    </span>
+
+    
+      <header class="post-header">
+        
+
+        <h1 class="post-title" itemprop="name headline">
+          浙大版C语言程序设计（第3版）-函数题-练习5
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-15 20:40:10" itemprop="dateCreated datePublished" datetime="2021-08-15T20:40:10+08:00">2021-08-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-10-23 18:15:53" itemprop="dateModified" datetime="2022-10-23T18:15:53+08:00">2022-10-23</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">数据结构与程序设计</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/PTA/" itemprop="url" rel="index"><span itemprop="name">PTA</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OJ/" itemprop="url" rel="index"><span itemprop="name">OJ</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/PTA/%E6%B5%99%E5%A4%A7%E7%89%88C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89/" itemprop="url" rel="index"><span itemprop="name">浙大版C语言程序设计（第3版）</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">简介：浙大版C语言程序设计（第3版）-函数题-练习5，共10个</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>题目来源：<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/12/problems/type/6">https://pintia.cn/problem-sets/12/problems/type/6</a></p>
+<h1 id="练习5-1-求m到n之和"><a href="#练习5-1-求m到n之和" class="headerlink" title="练习5-1 求m到n之和"></a>练习5-1 求m到n之和</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>本题要求实现一个计算m~n（m&lt;n）之间所有整数的和的简单函数。</p>
+<p><img src="/p/6698/image-20221023170502553.png" alt="image-20221023170502553"></p>
+<h2 id="程序样例"><a href="#程序样例" class="headerlink" title="程序样例"></a>程序样例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int sum(int m, int n);</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;    </span><br><span class="line">    int m, n;</span><br><span class="line"></span><br><span class="line">    scanf(&quot;%d %d&quot;, &amp;m, &amp;n);</span><br><span class="line">    printf(&quot;sum = %d\n&quot;, sum(m, n));</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 你的代码将被嵌在这里 */</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int sum( int m, int n )&#123;</span><br><span class="line">	int res = 0,i;</span><br><span class="line">	for (i=m;i&lt;=n;i++)&#123;</span><br><span class="line">		res+=i;</span><br><span class="line">	&#125;</span><br><span class="line">	return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="练习5-2-找两个数中最大者"><a href="#练习5-2-找两个数中最大者" class="headerlink" title="练习5-2 找两个数中最大者"></a>练习5-2 找两个数中最大者</h1><h2 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h2><p>本题要求对两个整数a和b，输出其中较大的数。</p>
+<p><img src="/p/6698/image-20221023170559711.png" alt="image-20221023170559711"></p>
+<h2 id="程序样例-1"><a href="#程序样例-1" class="headerlink" title="程序样例"></a>程序样例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int max( int a, int b );</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;    </span><br><span class="line">    int a, b;</span><br><span class="line"></span><br><span class="line">    scanf(&quot;%d %d&quot;, &amp;a, &amp;b);</span><br><span class="line">    printf(&quot;max = %d\n&quot;, max(a, b));</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 你的代码将被嵌在这里 */</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="关键代码-1"><a href="#关键代码-1" class="headerlink" title="关键代码"></a>关键代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int max( int a, int b )&#123;</span><br><span class="line">	return a&gt;b?a:b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="练习5-3-数字金字塔"><a href="#练习5-3-数字金字塔" class="headerlink" title="练习5-3 数字金字塔"></a>练习5-3 数字金字塔</h1><h2 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h2><p>本题要求实现函数输出n行数字金字塔。</p>
+<p><img src="/p/6698/image-20221023170244871.png" alt="image-20221023170244871"></p>
+<h2 id="程序样例-2"><a href="#程序样例-2" class="headerlink" title="程序样例"></a>程序样例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void pyramid( int n );</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;    </span><br><span class="line">    int n;</span><br><span class="line"></span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    pyramid(n);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 你的代码将被嵌在这里 */</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="关键代码-2"><a href="#关键代码-2" class="headerlink" title="关键代码"></a>关键代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void pyramid( int n )&#123;</span><br><span class="line">	for(int i = 1;i &lt;= n;i++)&#123;</span><br><span class="line">		for(int k = n;k&gt;i;k--)&#123;</span><br><span class="line">			printf(&quot; &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		for(int j=1;j&lt;=i;j++)&#123;</span><br><span class="line">			printf(&quot;%d &quot;,i);</span><br><span class="line">		&#125;</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="习题5-1-符号函数"><a href="#习题5-1-符号函数" class="headerlink" title="习题5-1 符号函数"></a>习题5-1 符号函数</h1><h2 id="题目-3"><a href="#题目-3" class="headerlink" title="题目"></a>题目</h2><p>本题要求实现符号函数sign(x)。</p>
+<p>其中<code>x</code>是用户传入的整型参数。符号函数的定义为：若<code>x</code>大于0，<code>sign(x)</code> = 1；若<code>x</code>等于0，<code>sign(x)</code> = 0；否则，<code>sign(x)</code> = −1。</p>
+<p><img src="/p/6698/image-20221023170803823.png" alt="image-20221023170803823"></p>
+<h2 id="程序样例-3"><a href="#程序样例-3" class="headerlink" title="程序样例"></a>程序样例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int sign( int x );</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int x;</span><br><span class="line"></span><br><span class="line">    scanf(&quot;%d&quot;, &amp;x);</span><br><span class="line">    printf(&quot;sign(%d) = %d\n&quot;, x, sign(x));</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 你的代码将被嵌在这里 */</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="关键代码-3"><a href="#关键代码-3" class="headerlink" title="关键代码"></a>关键代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int sign( int x )&#123;</span><br><span class="line">	int res=-1;</span><br><span class="line">	if(x&gt;0)&#123;</span><br><span class="line">		res = 1;</span><br><span class="line">	&#125;</span><br><span class="line">	if(x==0)&#123;</span><br><span class="line">		res = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="习题5-2-使用函数求奇数和"><a href="#习题5-2-使用函数求奇数和" class="headerlink" title="习题5-2 使用函数求奇数和"></a>习题5-2 使用函数求奇数和</h1><h2 id="题目-4"><a href="#题目-4" class="headerlink" title="题目"></a>题目</h2><p>本题要求实现一个函数，计算N个整数中所有奇数的和，同时实现一个判断奇偶性的函数。</p>
+<p>其中函数<code>even</code>将根据用户传入的参数<code>n</code>的奇偶性返回相应值：当<code>n</code>为偶数时返回1，否则返回0。函数<code>OddSum</code>负责计算并返回传入的<code>N</code>个整数<code>List[]</code>中所有奇数的和。</p>
+<p><img src="/p/6698/image-20221023171116879.png" alt="image-20221023171116879"></p>
+<h2 id="程序样例-4"><a href="#程序样例-4" class="headerlink" title="程序样例"></a>程序样例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">#define MAXN 10</span><br><span class="line"></span><br><span class="line">int even( int n );</span><br><span class="line">int OddSum( int List[], int N );</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;    </span><br><span class="line">    int List[MAXN], N, i;</span><br><span class="line"></span><br><span class="line">    scanf(&quot;%d&quot;, &amp;N);</span><br><span class="line">    printf(&quot;Sum of ( &quot;);</span><br><span class="line">    for ( i=0; i&lt;N; i++ ) &#123;</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;List[i]);</span><br><span class="line">        if ( even(List[i])==0 )</span><br><span class="line">            printf(&quot;%d &quot;, List[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;) = %d\n&quot;, OddSum(List, N));</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 你的代码将被嵌在这里 */</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="关键代码-4"><a href="#关键代码-4" class="headerlink" title="关键代码"></a>关键代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int even( int n )&#123;</span><br><span class="line">	if(n%2==0)&#123;</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line">int OddSum( int List[], int N )&#123;</span><br><span class="line">	int sum=0;</span><br><span class="line">	for(int i =0;i&lt;N;i++)&#123;</span><br><span class="line">		if(!even(List[i]))&#123;</span><br><span class="line">			sum+=List[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="习题5-3-使用函数计算两点间的距离"><a href="#习题5-3-使用函数计算两点间的距离" class="headerlink" title="习题5-3 使用函数计算两点间的距离"></a>习题5-3 使用函数计算两点间的距离</h1><h2 id="题目-5"><a href="#题目-5" class="headerlink" title="题目"></a>题目</h2><p>本题要求实现一个函数，对给定平面任意两点坐标(<em>x</em>1,<em>y</em>1)和(<em>x</em>2,<em>y</em>2)，求这两点之间的距离。</p>
+<h2 id="程序样例-5"><a href="#程序样例-5" class="headerlink" title="程序样例"></a>程序样例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line"></span><br><span class="line">double dist( double x1, double y1, double x2, double y2 );</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;    </span><br><span class="line">    double x1, y1, x2, y2;</span><br><span class="line"></span><br><span class="line">    scanf(&quot;%lf %lf %lf %lf&quot;, &amp;x1, &amp;y1, &amp;x2, &amp;y2);</span><br><span class="line">    printf(&quot;dist = %.2f\n&quot;, dist(x1, y1, x2, y2));</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 你的代码将被嵌在这里 */</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="关键代码-5"><a href="#关键代码-5" class="headerlink" title="关键代码"></a>关键代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">double dist( double x1, double y1, double x2, double y2 )&#123;</span><br><span class="line">	return sqrt(</span><br><span class="line">		pow(x1-x2,2) +</span><br><span class="line">		pow(y1-y2,2)</span><br><span class="line">	);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="习题5-4-使用函数求素数和"><a href="#习题5-4-使用函数求素数和" class="headerlink" title="习题5-4 使用函数求素数和"></a>习题5-4 使用函数求素数和</h1><h2 id="题目-6"><a href="#题目-6" class="headerlink" title="题目"></a>题目</h2><p>本题要求实现一个判断素数的简单函数、以及利用该函数计算给定区间内素数和的函数。</p>
+<p>素数就是只能被1和自身整除的正整数。注意：1不是素数，2是素数。</p>
+<p>其中函数<code>prime</code>当用户传入参数<code>p</code>为素数时返回1，否则返回0；函数<code>PrimeSum</code>返回区间[<code>m</code>, <code>n</code>]内所有素数的和。题目保证用户传入的参数<code>m</code>≤<code>n</code>。</p>
+<h2 id="程序样例-6"><a href="#程序样例-6" class="headerlink" title="程序样例"></a>程序样例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line"></span><br><span class="line">int prime( int p );</span><br><span class="line">int PrimeSum( int m, int n );</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int m, n, p;</span><br><span class="line"></span><br><span class="line">    scanf(&quot;%d %d&quot;, &amp;m, &amp;n);</span><br><span class="line">    printf(&quot;Sum of ( &quot;);</span><br><span class="line">    for( p=m; p&lt;=n; p++ ) &#123;</span><br><span class="line">        if( prime(p) != 0 )</span><br><span class="line">            printf(&quot;%d &quot;, p);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;) = %d\n&quot;, PrimeSum(m, n));</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 你的代码将被嵌在这里 */</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="关键代码-6"><a href="#关键代码-6" class="headerlink" title="关键代码"></a>关键代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">int prime( int p )&#123;</span><br><span class="line">	if(p&lt;=1)&#123;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	for(int i =2;i&lt;p;i++)&#123;</span><br><span class="line">		if(p%i==0)&#123;</span><br><span class="line">			return 0;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 1;</span><br><span class="line">&#125;</span><br><span class="line">int PrimeSum( int m, int n )&#123;</span><br><span class="line">	int sum = 0;</span><br><span class="line">	for(int i = m;i&lt;=n;i++)&#123;</span><br><span class="line">		if(prime(i))&#123;</span><br><span class="line">			sum+=i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="习题5-5-使用函数统计指定数字的个数"><a href="#习题5-5-使用函数统计指定数字的个数" class="headerlink" title="习题5-5 使用函数统计指定数字的个数"></a>习题5-5 使用函数统计指定数字的个数</h1><h2 id="题目-7"><a href="#题目-7" class="headerlink" title="题目"></a>题目</h2><p>本题要求实现一个统计整数中指定数字的个数的简单函数。</p>
+<p><img src="/p/6698/image-20221023171447123.png" alt="image-20221023171447123"></p>
+<h2 id="程序样例-7"><a href="#程序样例-7" class="headerlink" title="程序样例"></a>程序样例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int CountDigit( int number, int digit );</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int number, digit;</span><br><span class="line"></span><br><span class="line">    scanf(&quot;%d %d&quot;, &amp;number, &amp;digit);</span><br><span class="line">    printf(&quot;Number of digit %d in %d: %d\n&quot;, digit, number, CountDigit(number, digit));</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 你的代码将被嵌在这里 */</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="关键代码-7"><a href="#关键代码-7" class="headerlink" title="关键代码"></a>关键代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">int CountDigit( int number, int digit )&#123;</span><br><span class="line">	if(number==0&amp;&amp;digit==0)&#123;</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	int count = 0;</span><br><span class="line">	if(number&lt;0)&#123;</span><br><span class="line">		number = -1*number;</span><br><span class="line">	&#125;</span><br><span class="line">	while(number&gt;0)&#123;</span><br><span class="line">		if(number%10 == digit)&#123;</span><br><span class="line">			count ++;</span><br><span class="line">		&#125;</span><br><span class="line">		number /= 10;</span><br><span class="line">	&#125;</span><br><span class="line">	return count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="习题5-6-使用函数输出水仙花数"><a href="#习题5-6-使用函数输出水仙花数" class="headerlink" title="习题5-6 使用函数输出水仙花数"></a>习题5-6 使用函数输出水仙花数</h1><h2 id="题目-8"><a href="#题目-8" class="headerlink" title="题目"></a>题目</h2><p>水仙花数是指一个<em>N</em>位正整数（<em>N</em>≥3），它的每个位上的数字的<em>N</em>次幂之和等于它本身。例如：153=13+53+33。 本题要求编写两个函数，一个判断给定整数是否水仙花数，另一个按从小到大的顺序打印出给定区间(<em>m</em>,<em>n</em>)内所有的水仙花数。</p>
+<p>函数<code>narcissistic</code>判断<code>number</code>是否为水仙花数，是则返回1，否则返回0。</p>
+<p>函数<code>PrintN</code>则打印开区间(<code>m</code>, <code>n</code>)内所有的水仙花数，每个数字占一行。题目保证100≤<code>m</code>≤<code>n</code>≤10000。</p>
+<h2 id="程序样例-8"><a href="#程序样例-8" class="headerlink" title="程序样例"></a>程序样例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int narcissistic( int number );</span><br><span class="line">void PrintN( int m, int n );</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int m, n;</span><br><span class="line"></span><br><span class="line">    scanf(&quot;%d %d&quot;, &amp;m, &amp;n);</span><br><span class="line">    if ( narcissistic(m) ) printf(&quot;%d is a narcissistic number\n&quot;, m);</span><br><span class="line">    PrintN(m, n);</span><br><span class="line">    if ( narcissistic(n) ) printf(&quot;%d is a narcissistic number\n&quot;, n);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 你的代码将被嵌在这里 */</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="关键代码-8"><a href="#关键代码-8" class="headerlink" title="关键代码"></a>关键代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">int narcissistic( int number )&#123;</span><br><span class="line">	int res = number, i;</span><br><span class="line">	if(number&gt;=100&amp;&amp;number&lt;=999)&#123;</span><br><span class="line">		while(number&gt;0)&#123;</span><br><span class="line">			i = number%10;</span><br><span class="line">			res -= i*i*i;</span><br><span class="line">			number /= 10;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;else if(number&gt;=1000&amp;&amp;number&lt;=9999)&#123;</span><br><span class="line">		while(number&gt;0)&#123;</span><br><span class="line">			i = number%10;</span><br><span class="line">			res -= i*i*i*i;</span><br><span class="line">			number /= 10;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return !res;</span><br><span class="line">&#125;</span><br><span class="line">void PrintN( int m, int n )&#123;</span><br><span class="line">	for(int i=m+1;i&lt;n;i++)&#123;</span><br><span class="line">		if(narcissistic(i))&#123;</span><br><span class="line">			printf(&quot;%d\n&quot;,i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="习题5-7-使用函数求余弦函数的近似值"><a href="#习题5-7-使用函数求余弦函数的近似值" class="headerlink" title="习题5-7 使用函数求余弦函数的近似值"></a>习题5-7 使用函数求余弦函数的近似值</h1><h2 id="题目-9"><a href="#题目-9" class="headerlink" title="题目"></a>题目</h2><p>本题要求实现一个函数，用下列公式求cos(<em>x</em>)的近似值，精确到最后一项的绝对值小于<em>e</em>：</p>
+<p>$$<br>cos(x)=x^0 /0!−x ^2/2!+x ^4/4!−x ^6/6!+⋯<br>$$</p>
+<p>其中用户传入的参数为误差上限<code>e</code>和自变量<code>x</code>；函数<code>funcos</code>应返回用给定公式计算出来、并且满足误差要求的cos(<em>x</em>)的近似值。输入输出均在双精度范围内。</p>
+<h2 id="程序样例-9"><a href="#程序样例-9" class="headerlink" title="程序样例"></a>程序样例</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">funcos</span><span class="params">( <span class="keyword">double</span> e, <span class="keyword">double</span> x )</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">    <span class="keyword">double</span> e, x;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lf %lf&quot;</span>, &amp;e, &amp;x);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;cos(%.2f) = %.6f\n&quot;</span>, x, <span class="built_in">funcos</span>(e, x));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 你的代码将被嵌在这里 */</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="关键代码-9"><a href="#关键代码-9" class="headerlink" title="关键代码"></a>关键代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">funcos</span><span class="params">( <span class="keyword">double</span> e, <span class="keyword">double</span> x )</span></span>&#123;</span><br><span class="line">	<span class="keyword">double</span> res=<span class="number">1</span>,temp=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> i, n=<span class="number">2</span>,flag = <span class="number">-1</span>;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//	一定要用do while才行，不然无法满足最后一项的绝对值小于e</span></span><br><span class="line">	<span class="keyword">do</span>&#123;</span><br><span class="line"><span class="comment">//		把求幂写出来了才看到引用了math库 </span></span><br><span class="line"><span class="comment">//		temp=1;</span></span><br><span class="line"><span class="comment">//		for(i=1;i&lt;=n;i++)&#123;</span></span><br><span class="line"><span class="comment">//			temp *= x;</span></span><br><span class="line"><span class="comment">//		&#125;</span></span><br><span class="line">		temp = <span class="built_in">pow</span>(x,n);</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">			temp /= i;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		res += flag*temp;</span><br><span class="line">		n += <span class="number">2</span>;</span><br><span class="line">		flag *= <span class="number">-1</span> ;</span><br><span class="line">		</span><br><span class="line">	&#125;<span class="keyword">while</span>(temp&gt;=e);</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h1 id="突然不能免费用了"><a href="#突然不能免费用了" class="headerlink" title="突然不能免费用了"></a>突然不能免费用了</h1><p>2021年8月22日</p>
+<p><img src="/p/6698/Snipaste_2021-08-22_12-34-38.png" alt="Snipaste_2021-08-22_12-34-38"></p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/p/2dd1/" rel="prev" title="二维数组两对角线乘积">
+                  <i class="fa fa-chevron-left"></i> 二维数组两对角线乘积
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/p/md37/" rel="next" title="markdown编辑器分析">
+                  markdown编辑器分析 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cuishuohao</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">55k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">50 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
