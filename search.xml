@@ -3,7 +3,8 @@
   <entry>
     <title>python的map函数</title>
     <url>/p/2dfc/</url>
-    <content><![CDATA[<h1 id="动画学会Python中的map函数"><a href="#动画学会Python中的map函数" class="headerlink" title="动画学会Python中的map函数"></a>动画学会Python中的map函数</h1><iframe src="//player.bilibili.com/player.html?isOutside=true&aid=734428752&bvid=BV1hD4y1j7ga&cid=942742143&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+    <content><![CDATA[<h1 id="动画学会Python中的map函数"><a href="#动画学会Python中的map函数" class="headerlink" title="动画学会Python中的map函数"></a>动画学会Python中的map函数</h1><iframe src="//player.bilibili.com/player.html?isOutside=true&aid=734428752&bvid=BV1hD4y1j7ga&cid=942742143&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 
 <h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p>把int按位转换为list</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="number">123456</span></span><br><span class="line">lst = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">str</span>(n))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(lst))</span><br><span class="line"><span class="comment"># [1, 2, 3, 4, 5, 6]</span></span><br></pre></td></tr></table></figure>
