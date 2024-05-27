@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>leetcode-300-最长递增子序列</title>
+    <url>/p/4c32/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.cn/problems/longest-increasing-subsequence/?envType=study-plan-v2&amp;envId=dynamic-programming">https://leetcode.cn/problems/longest-increasing-subsequence/?envType=study-plan-v2&amp;envId=dynamic-programming</a></p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lengthOfLIS</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        lst = [<span class="number">1</span>]*<span class="built_in">len</span>(nums)</span><br><span class="line">        i = <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> i&lt;<span class="built_in">len</span>(nums):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i):</span><br><span class="line">                <span class="keyword">if</span> nums[j]&lt;nums[i]:</span><br><span class="line">                    <span class="keyword">if</span> lst[j]+<span class="number">1</span> &gt; lst[i]:</span><br><span class="line">                        lst[i] = lst[j]+<span class="number">1</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="comment"># print(lst,max(lst))</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(lst)</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+  </entry>
+  <entry>
     <title>leetcode_64_最小路径和</title>
     <url>/p/4abd/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.cn/problems/minimum-path-sum/description/?envType=study-plan-v2&amp;envId=dynamic-programming">https://leetcode.cn/problems/minimum-path-sum/description/?envType=study-plan-v2&amp;envId=dynamic-programming</a></p>
@@ -1259,8 +1269,8 @@
 <p>参考：<br>c语言自己写一个.h的头文件：<a href="https://blog.csdn.net/Wolf_xujie/article/details/102166384">https://blog.csdn.net/Wolf_xujie/article/details/102166384</a></p>
 ]]></content>
       <categories>
-        <category>工具</category>
         <category>数据结构与程序设计</category>
+        <category>工具</category>
       </categories>
   </entry>
   <entry>
