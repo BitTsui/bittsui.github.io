@@ -11,7 +11,7 @@
   <entry>
     <title>python中二维数组求最大值</title>
     <url>/p/7474/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">lst = [[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">0</span>,<span class="number">5</span>], [<span class="number">3</span>,<span class="number">4</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 直接max，返回的是这个二维数组的某一行（这一行的和最大）</span></span><br><span class="line"><span class="comment"># 输出[3, 4]</span></span><br><span class="line"><span class="built_in">max</span>(lst)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出的是4，即[3, 4]中的最大值4</span></span><br><span class="line"><span class="built_in">max</span>(<span class="built_in">max</span>(lst))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出的是每一行中元素的最大值的map类型对象。</span></span><br><span class="line"><span class="comment">#  比如lst有3行，输出的结果就有三个元素</span></span><br><span class="line">mp = <span class="built_in">map</span>(<span class="built_in">max</span>,lst)</span><br><span class="line"><span class="comment"># 可以foreach迭代mp对象的元素</span></span><br><span class="line"><span class="comment"># 也可以转list类型后直接输出为[2, 5, 4]</span></span><br><span class="line"><span class="built_in">list</span>(mp)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出的是二维数组lst中所有元素的最大值</span></span><br><span class="line"><span class="built_in">max</span>(<span class="built_in">map</span>(<span class="built_in">max</span>,lst))</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">lst = [[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">0</span>,<span class="number">5</span>], [<span class="number">3</span>,<span class="number">4</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 直接max，返回的是这个二维数组的某一行（这一行的和最大）。</span></span><br><span class="line"><span class="comment"># 输出[3, 4]</span></span><br><span class="line"><span class="built_in">max</span>(lst)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回的是4，即[3, 4]中的最大值4</span></span><br><span class="line"><span class="built_in">max</span>(<span class="built_in">max</span>(lst))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回的是每一行中元素的最大值，数据类型是的map类型。</span></span><br><span class="line"><span class="comment">#  比如lst有3行，返回的结果就有三个元素</span></span><br><span class="line">mp = <span class="built_in">map</span>(<span class="built_in">max</span>,lst)</span><br><span class="line"><span class="comment"># 可以foreach迭代输出mp对象的元素</span></span><br><span class="line"><span class="comment"># 也可以转list类型后直接输出为[2, 5, 4]</span></span><br><span class="line"><span class="built_in">list</span>(mp)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回的是二维数组lst中所有元素的最大值</span></span><br><span class="line"><span class="built_in">max</span>(<span class="built_in">map</span>(<span class="built_in">max</span>,lst))</span><br></pre></td></tr></table></figure>
 
 
 
@@ -1326,8 +1326,8 @@
 <p>参考：<br>c语言自己写一个.h的头文件：<a href="https://blog.csdn.net/Wolf_xujie/article/details/102166384">https://blog.csdn.net/Wolf_xujie/article/details/102166384</a></p>
 ]]></content>
       <categories>
-        <category>工具</category>
         <category>数据结构与程序设计</category>
+        <category>工具</category>
       </categories>
   </entry>
   <entry>
