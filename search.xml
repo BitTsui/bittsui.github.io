@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>leetcode-221-最大正方形</title>
+    <url>/p/6b3c/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.cn/problems/maximal-square/submissions/535259143/?envType=study-plan-v2&amp;envId=dynamic-programming">https://leetcode.cn/problems/maximal-square/submissions/535259143/?envType=study-plan-v2&amp;envId=dynamic-programming</a></p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maximalSquare</span>(<span class="params">self, matrix: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">str</span>]]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        m,n = <span class="built_in">len</span>(matrix), <span class="built_in">len</span>(matrix[<span class="number">0</span>])</span><br><span class="line">        lst = [[<span class="number">0</span> <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m)]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            lst[i][<span class="number">0</span>] = <span class="built_in">int</span>(matrix[i][<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            lst[<span class="number">0</span>][i] = <span class="built_in">int</span>(matrix[<span class="number">0</span>][i])</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,m):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n):</span><br><span class="line">                a,b,c = lst[i-<span class="number">1</span>][j],lst[i][j-<span class="number">1</span>],lst[i-<span class="number">1</span>][j-<span class="number">1</span>]</span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">int</span>(matrix[i][j]) == <span class="number">0</span>:</span><br><span class="line">                    lst[i][j] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">elif</span> <span class="built_in">min</span>(a,b,c) == <span class="number">0</span>:</span><br><span class="line">                    lst[i][j] = <span class="built_in">int</span>(matrix[i][j])</span><br><span class="line">                <span class="keyword">elif</span> <span class="built_in">min</span>(a,b,c) &lt; <span class="built_in">max</span>(a,b,c):</span><br><span class="line">                    lst[i][j] = <span class="built_in">min</span>(a,b,c)+<span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    lst[i][j] = a+<span class="number">1</span></span><br><span class="line">        <span class="comment"># print(lst)</span></span><br><span class="line"></span><br><span class="line">        bian = <span class="built_in">max</span>(<span class="built_in">map</span>(<span class="built_in">max</span>,lst))</span><br><span class="line">        <span class="keyword">return</span> bian*bian</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>python中二维数组求最大值</title>
+    <url>/p/7474/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">lst = [[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">0</span>,<span class="number">5</span>], [<span class="number">3</span>,<span class="number">4</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 直接max，返回的是这个二维数组的某一行（这一行的和最大）</span></span><br><span class="line"><span class="comment"># 输出[3, 4]</span></span><br><span class="line"><span class="built_in">max</span>(lst)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出的是4，即[3, 4]中的最大值4</span></span><br><span class="line"><span class="built_in">max</span>(<span class="built_in">max</span>(lst))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出的是每一行中元素的最大值的map类型对象。</span></span><br><span class="line"><span class="comment">#  比如lst有3行，输出的结果就有三个元素</span></span><br><span class="line">mp = <span class="built_in">map</span>(<span class="built_in">max</span>,lst)</span><br><span class="line"><span class="comment"># 可以foreach迭代mp对象的元素</span></span><br><span class="line"><span class="comment"># 也可以转list类型后直接输出为[2, 5, 4]</span></span><br><span class="line"><span class="built_in">list</span>(mp)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出的是二维数组lst中所有元素的最大值</span></span><br><span class="line"><span class="built_in">max</span>(<span class="built_in">map</span>(<span class="built_in">max</span>,lst))</span><br></pre></td></tr></table></figure>
+
+
+
+<p>总结一下，要得到二维数组的最大值，不能用 max(max(lst))，而是用max(map(max,lst))</p>
+]]></content>
+  </entry>
+  <entry>
     <title>leetcode-931-下降路径最小和</title>
     <url>/p/6942/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.cn/problems/minimum-falling-path-sum/description/?envType=study-plan-v2&amp;envId=dynamic-programming">https://leetcode.cn/problems/minimum-falling-path-sum/description/?envType=study-plan-v2&amp;envId=dynamic-programming</a></p>
@@ -1308,8 +1326,8 @@
 <p>参考：<br>c语言自己写一个.h的头文件：<a href="https://blog.csdn.net/Wolf_xujie/article/details/102166384">https://blog.csdn.net/Wolf_xujie/article/details/102166384</a></p>
 ]]></content>
       <categories>
-        <category>数据结构与程序设计</category>
         <category>工具</category>
+        <category>数据结构与程序设计</category>
       </categories>
   </entry>
   <entry>
